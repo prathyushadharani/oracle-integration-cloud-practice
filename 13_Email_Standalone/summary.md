@@ -43,7 +43,7 @@ This module introduces a **standalone integration** pattern for sending **email 
   "subject": "🔴 FBDI Failure Alert – Customer Load",
   "message": "The customer FBDI job failed after 3 retries. Error Code: FTP404<br><br>Time: 2025-08-04 10:30 PM"
 }
-
+```
 ---
 
 ## 📎 Screenshot Ideas
