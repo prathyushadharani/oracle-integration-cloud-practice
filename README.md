@@ -33,7 +33,8 @@ This repository documents my hands-on journey through the Oracle Integration Clo
 | ✔️ | 11     | [FBDI Automation via Scheduled Orchestration](11_FBDI_Import/summary.md)                        |
 | ⏳ | 12     | [Advanced Exception Handling with Retry Logic](12_Exception_Retry/summary.md)                   |
 | ⏳ | 13     | [Email Notification + Error Management (Standalone Pattern)](13_Email_Standalone/summary.md)    |
-| ⏳ | 14     | [En]()
+| ⏳ | 14     | [End-to-End Real-Time Integration (REST to ERP + Fault Handling)](14_End_to_End_REST/summary.md)|
+| ⏳ | 15     | [Build SaaS-to-SaaS Integration (ERP to HCM / SCM to ERP etc.)](15_SaaS_to_SaaS/summary.md)     |
 
  🔁 Replace ✔️ with ⏳ or ❌ as you move forward. 
 ### Part 2: VBCS Apps
