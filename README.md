@@ -1,43 +1,43 @@
-# oracle-integration-cloud-practice
-Hands-on practice with Oracle Integration Cloud (OIC) — app-driven, scheduled flows, REST/SOAP integrations, FBDI, file handling, and more.
+# Oracle Integration Cloud (OIC) Practice – UnoGeeks Course
 
-
-Welcome to my hands-on learning journey through the Oracle Integration Cloud (OIC). This repository contains real-world lab exercises, notes, and project artifacts as I build integrations using OIC.
+This repository documents my hands-on journey through the Oracle Integration Cloud (OIC) modules in the UnoGeeks course, covering real-time scenarios and projects.
 
 ---
 
-## 🚀 Course Focus Areas
+## 🚀 Course Roadmap
 
-- Core Integrations (App-Driven & Scheduled)
-- REST, SOAP, File, FTP Adapters
-- SaaS to SaaS and SaaS to On-Premise integrations
-- Error Handling, Lookups, Agents, Monitoring
-- Real-time Projects (e.g., AR Invoice end-to-end)
-- Integration Specialist Certification Preparation
+### Part 1: Core Integrations in OIC
+- ✅ Module 1: Introduction to OIC
+- ✅ Module 2: OCI Account & Console
+- ✅ Module 3: OIC Navigation
+- 🔄 Module 4: Web Services Basics
+- 🔄 Module 5: Introduction to Integrations
+- 🔄 Module 6: REST API (App Driven Orchestration)
+- 🔄 Module 7: SOAP API
+- 🔄 Module 8: File Transfer Integration
+- …
+  
+### Part 2: VBCS Apps
+Modules 19–22 will cover VBCS.
+
+### Part 3: PCS Automation
+Modules 23–27 will cover PCS.
+
+### Project: Complex AR Invoice End-to-End Solution (Modules 28–31)
+
+### Certification & Resume (Module 32)
 
 ---
 
-## 📁 Repository Structure
+## 🗓️ Learning Tracker
 
-Each folder in this repo represents a major module or lab topic. It includes:
-- Lab summaries
-- Screenshots
-- Mapping files
-- Sample payloads
-
----
-
-## 📅 Learning Log
-
-| Day | Topic | Videos Covered | Lab Status |
-|-----|-------|----------------|------------|
-| 1   | App-Driven Integration | ✅ Watched | 🔄 In Progress |
-| 2   | REST & Mapping | ⏳ Planned | |
-| …   | …     | … | … |
+| Day | Modules Covered | Status |
+|-----|-----------------|--------|
+| 1 | 1–3 | 🔄 In Progress |
+| 2 | 4–5 | ⏳ Planned |
+| … | … | … |
 
 ---
 
 ## 🎯 Goal
-
-To become job-ready as an Oracle Integration Cloud Developer by completing the full UnoGeeks course with hands-on lab work and real-world project scenarios.
-
+To master Oracle Integration Cloud for building SaaS-SaaS and SaaS-OnPrem integrations and become job-ready for Oracle Integration roles.
