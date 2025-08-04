@@ -35,7 +35,7 @@ This serves as my **project showcase** and a revision-ready portfolio.
 | ⏳ | 14     | [End-to-End Real-Time Integration (REST to ERP + Fault Handling)](14_End_to_End_REST/summary.md)|
 | ⏳ | 15     | [Build SaaS-to-SaaS Integration (ERP to HCM / SCM to ERP etc.)](15_SaaS_to_SaaS/summary.md)     |
 
-  ✔️ Completed ⏳ InProgress ❌ as you move forward. 
+  ✔️ Completed ⏳ InProgress ❌ Yet to complete. 
 
 ## 🚧 Coming Soon: Phase 2 – VBCS, PCS, & Capstone Project
 
