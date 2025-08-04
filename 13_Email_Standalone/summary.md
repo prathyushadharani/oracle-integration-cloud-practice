@@ -46,18 +46,31 @@ This module introduces a **standalone integration** pattern for sending **email 
 
 ---
 
-##  📎 Screenshot Ideas
-- Notification action config
+## 📎 Screenshot Ideas
 
-- Email body HTML formatting with variable mapping
+These are the screenshots I plan to capture and save in the `artifacts/` folder:
 
-- Postman request and successful email preview
+1. **Notification action config** – how the notification step is configured inside the integration
+2. **Email body HTML formatting with variable mapping** – where dynamic values like `message`, `error code`, and `timestamp` are injected
+3. **Postman request and successful email preview** – input payload and actual received email
+
+🗂️ These will be stored in:  
+`13_Email_Standalone/artifacts/`
+
 ---
 
-##  📌 Summary
--  Creating a dedicated email integration is a best practice in OIC. It simplifies alerting, avoids duplication, and brings clarity in monitoring batch and real-time flows. It’s also easily callable from App-Driven or Scheduled flows.
+## 📌 Summary
 
-##  🔗 Helpful References
-Using Email Notification in OIC – Oracle Docs
+Creating a **dedicated email integration** is a best practice in OIC.
 
-HTML Tags Supported in Email Body
+- 🔁 **Reusable** across multiple flows for alerting and notifications
+- 💬 Accepts **dynamic inputs** like subject, recipient, and message body
+- 📧 Supports **HTML-formatted content** in emails
+- 🚨 Adds professional-grade error monitoring to scheduled and app-driven flows
+
+---
+
+## 🔗 Helpful References
+
+- 📘 [Using Email Notification in OIC – Oracle Docs](https://docs.oracle.com/en/cloud/paas/integration-cloud/integrations-user/using-notification-action.html)  
+- 🧾 [HTML Tags Supported in Email Body – W3Schools](https)
