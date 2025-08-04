@@ -51,7 +51,7 @@ This flow is fully **App-Driven**, and includes:
   "currency": "USD"
 }
 ```
-📎 Screenshot Ideas
+##  📎 Screenshot Ideas
 REST Adapter configuration (exposed URL and structure)
 
 ERP Adapter config (with Operation & Credentials)
@@ -62,13 +62,13 @@ Fault handler design: scope, error log, email call
 
 Instance trace showing successful or failed ERP call
 
-🗂️ Save all screenshots in:
+##  🗂️ Save all screenshots in:
 14_End_to_End_REST/artifacts/
 
-📌 Summary
+##  📌 Summary
 This integration shows how OIC can act as a real-time API gateway between third-party apps and Oracle ERP. It captures the end-to-end business scenario, includes fault resilience, and shows how to trigger downstream flows like notifications — an essential pattern in production systems.
 
-🔗 Helpful References
+##  🔗 Helpful References
 📘 Using ERP Adapter in OIC – Oracle Docs
 
 🔐 ERP Security Configuration – Oracle
