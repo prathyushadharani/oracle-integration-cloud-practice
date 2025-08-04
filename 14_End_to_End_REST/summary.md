@@ -68,7 +68,14 @@ Instance trace showing successful or failed ERP call
 ##  📌 Summary
 This integration shows how OIC can act as a real-time API gateway between third-party apps and Oracle ERP. It captures the end-to-end business scenario, includes fault resilience, and shows how to trigger downstream flows like notifications — an essential pattern in production systems.
 
-##  🔗 Helpful References
-📘 Using ERP Adapter in OIC – Oracle Docs
+---
 
-🔐 ERP Security Configuration – Oracle
+## 🔗 Helpful References
+
+- 📘 [Using ERP Adapter in Oracle Integration Cloud](https://docs.oracle.com/en/cloud/paas/integration-cloud/erp-adapter/index.html)  
+- 🔐 [Setting Up ERP Adapter Security – Oracle Docs](https://docs.oracle.com/en/cloud/paas/integration-cloud/using-integrations/credentials-erp.html)  
+- 📤 [Create AR Invoice – ERP SOAP WSDL & Reference](https://docs.oracle.com/en/cloud/saas/financials/23d/farws/api-invoice-service.html)  
+- 🧾 [How to Use Business Identifiers in OIC](https://docs.oracle.com/en/cloud/paas/integration-cloud/integrations-user/track-integration-instances.html#GUID-8AFDAB88-EAB0-4B4A-BF9D-9A5426BB8A2C)  
+- 🪓 [Fault Handling Best Practices in OIC](https://docs.oracle.com/en/cloud/paas/integration-cloud/integrations-user/fault-handling.html)
+
+
