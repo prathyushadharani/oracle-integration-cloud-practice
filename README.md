@@ -16,6 +16,24 @@ This repository documents my hands-on journey through the Oracle Integration Clo
 - 🔄 Module 7: SOAP API
 - 🔄 Module 8: File Transfer Integration
 - …
+- | Module No. | Title                                                           |
+| ---------- | --------------------------------------------------------------- |
+| 1️⃣        | Introduction to Oracle Integration Cloud (OIC)                  |
+| 2️⃣        | Create REST Adapter-based App-Driven Orchestration              |
+| 3️⃣        | Create SOAP Adapter-based App-Driven Orchestration              |
+| 4️⃣        | Create REST Adapter-based Scheduled Orchestration               |
+| 5️⃣        | Create FTP Adapter-based Scheduled Orchestration                |
+| 6️⃣        | Build REST to SOAP Integration (App-Driven)                     |
+| 7️⃣        | Implement Notification and Exception Handling                   |
+| 8️⃣        | File Transfer with Scheduled Integration                        |
+| 9️⃣        | Journal Import via App-Driven Orchestration                     |
+| 🔟         | AR Invoice Integration (Multi-Method: GET & POST)               |
+| 1️⃣1️⃣     | FBDI Automation via Scheduled Orchestration                     |
+| 1️⃣2️⃣     | Advanced Exception Handling with Retry Logic                    |
+| 1️⃣3️⃣     | Email Notification + Error Management (Standalone Pattern)      |
+| 1️⃣4️⃣     | End-to-End Real-Time Integration (REST to ERP + Fault Handling) |
+| 1️⃣5️⃣     | Build SaaS-to-SaaS Integration (ERP to HCM / SCM to ERP etc.)   |
+
   
 ### Part 2: VBCS Apps
 Modules 19–22 will cover VBCS.
