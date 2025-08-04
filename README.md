@@ -64,6 +64,18 @@ This serves as my **project showcase** and a revision-ready portfolio.
 
 ---
 
+## 📒 Notes Folder Overview
+
+Your `Notes/` folder contains reusable documentation and templates to support your learning:
+
+| 📄 File                 | Purpose                                                                       |
+|------------------------|-------------------------------------------------------------------------------|
+| [`artifact_guide.md`](Notes/artifact_guide.md)   | Explains what to store in each module’s `artifacts/` folder (screenshots, logs, payloads) |
+| [`test_scenarios.md`](Notes/test_scenarios.md)   | Contains edge case test ideas, sample payloads, retry cases, and fault validation flows  |
+| [`quick_references.md`](Notes/quick_references.md) | Handy collection of Oracle Docs, WSDL/REST endpoints, XPath expressions, and tools       |
+
+---
+
 ## 💡 Why I Built This
 
 - 🔨 To **build confidence** through consistent practice  
