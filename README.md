@@ -1,20 +1,19 @@
-# Oracle Integration Cloud (OIC) Practice – UnoGeeks Course
+# 🚀 Oracle Integration Cloud (OIC) Hands-On Practice
 
-This repository documents my hands-on journey through the Oracle Integration Cloud (OIC) modules in the UnoGeeks course, covering real-time scenarios and projects.
+Welcome! This repository documents my **end-to-end hands-on learning journey** with Oracle Integration Cloud (OIC), following the UnoGeeks OIC course. It includes:
+
+- ✅ Integration summaries (App-Driven, Scheduled, Real-Time, SaaS-to-SaaS)
+- 📎 Reusable artifacts and screenshots
+- 🧪 Test scenarios & edge cases
+- 📚 Personal reference notes, API docs, and more
+
+This serves as my **project showcase** and a revision-ready portfolio.
 
 ---
-
 ## 🚀 Course Roadmap
 
 ### Part 1: Core Integrations in OIC
-- ✅ Module 1: Introduction to OIC
-- ✅ Module 2: OCI Account & Console
-- ✅ Module 3: OIC Navigation
-- 🔄 Module 4: Web Services Basics
-- 🔄 Module 5: Introduction to Integrations
-- 🔄 Module 6: REST API (App Driven Orchestration)
-- 🔄 Module 7: SOAP API
-- 🔄 Module 8: File Transfer Integration
+
 - …
 ## 📘 Course Progress – Oracle Integration Cloud (UnoGeeks)
 
@@ -37,27 +36,55 @@ This repository documents my hands-on journey through the Oracle Integration Clo
 | ⏳ | 15     | [Build SaaS-to-SaaS Integration (ERP to HCM / SCM to ERP etc.)](15_SaaS_to_SaaS/summary.md)     |
 
  🔁 Replace ✔️ with ⏳ or ❌ as you move forward. 
-### Part 2: VBCS Apps
-Modules 19–22 will cover VBCS.
 
-### Part 3: PCS Automation
-Modules 23–27 will cover PCS.
+## 🚧 Coming Soon: Phase 2 – VBCS, PCS, & Capstone Project
 
-### Project: Complex AR Invoice End-to-End Solution (Modules 28–31)
+| 🚀 Module | Topic                                  |
+|----------|-----------------------------------------|
+| 19–22    | VBCS Apps – Build, Bind, Deploy         |
+| 23–27    | PCS Automation – Human Tasks & Workflows|
+| 28–31    | End-to-End Project – AR Invoice Solution|
+| 32       | Certification Prep & Resume Drafting    |
 
-### Certification & Resume (Module 32)
+
+---
+
 
 ---
 
-## 🗓️ Learning Tracker
+## 🧠 Notes & References
 
-| Day | Modules Covered | Status |
-|-----|-----------------|--------|
-| 1 | 1–3 | 🔄 In Progress |
-| 2 | 4–5 | ⏳ Planned |
-| … | … | … |
+| 📄 File               | Purpose                                                   |
+|----------------------|-----------------------------------------------------------|
+| `artifact_guide.md`   | What to include in each module’s artifacts folder        |
+| `test_scenarios.md`   | Bonus test cases for REST, SOAP, ERP, fault handling     |
+| `quick_references.md` | Oracle docs, WSDLs, XPath, Postman & Markdown tips       |
+
+👉 Access these in the [`Notes/`](Notes/) folder
 
 ---
+
+## 💡 Why I Built This
+
+- 🔨 To **build confidence** through consistent practice  
+- 🧪 To document what I’ve **actually done**, not just watched  
+- 🎯 To create a ready-made **portfolio** for interviews and job search  
+- 🗃️ To use it as a **revision tool** for future projects or client work  
+
+---
+
+## 🔄 How to Use This Repo
+
+If you're learning OIC:
+- Use `summary.md` files to understand integration patterns
+- Refer `test_scenarios.md` to plan your own variations
+- Check `artifacts/` folders to compare designs and outputs
+- Explore `quick_references.md` for key documentation and tools
+
+---
+
+🧡 Happy Integrating! Built with care, focus, and plenty of postman calls.
+
 
 ## 🎯 Goal
 To master Oracle Integration Cloud for building SaaS-SaaS and SaaS-OnPrem integrations and become job-ready for Oracle Integration roles.
