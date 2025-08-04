@@ -66,7 +66,7 @@ This serves as my **project showcase** and a revision-ready portfolio.
 
 ## 📒 Notes Folder Overview
 
-Your `Notes/` folder contains reusable documentation and templates to support your learning:
+`Notes/` folder contains reusable documentation and templates to support your learning:
 
 | 📄 File                 | Purpose                                                                       |
 |------------------------|-------------------------------------------------------------------------------|
