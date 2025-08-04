@@ -44,12 +44,15 @@ This module introduces a **standalone integration** pattern for sending **email 
   "message": "The customer FBDI job failed after 3 retries. Error Code: FTP404<br><br>Time: 2025-08-04 10:30 PM"
 }
 
+---
+
 ##  📎 Screenshot Ideas
 - Notification action config
 
 - Email body HTML formatting with variable mapping
 
 - Postman request and successful email preview
+---
 
 ##  📌 Summary
 -  Creating a dedicated email integration is a best practice in OIC. It simplifies alerting, avoids duplication, and brings clarity in monitoring batch and real-time flows. It’s also easily callable from App-Driven or Scheduled flows.
