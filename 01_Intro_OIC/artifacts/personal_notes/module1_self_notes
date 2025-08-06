@@ -41,12 +41,81 @@ oracle would also share a link to access oracle fusion cloud instance url
 so after the oracle fusion application is installed in cloud in the datacenter
 closest to your location, they would be sharing the application url with you and
 
--we would access the oracle applications installed in cloud
+-we would access the oracle applications which is installed in cloud
 -cloud means the application is installed in one of the oracle datacenters
 
-now when we access the oracle application url, we wouldbe redirected to a sign in page 
+now when we access the oracle application url, we wouldbe redirected to 
+a sign in page 
+
+we have a user name and password
+
+now when we access instance url-we are accessing 
+oracle fusion ERP applications installed in cloud
+
+where is this application running? in oracle data center
+
+who is responsible for keeping it up and running 24*7? for upgrading it? maintaining it?
+
+it would all be done by oracle-vendor in this case
+
+adv:
+
+i dont need to buy the servers
+no need to install it
+no need to maintain it
+best part: no huge captital expenditure upfront
+but in case of on-prem we have to buy the servers
+
+so this fusion cloud application is called software as a service (SaaS)
+product
 
 SaaS product-Oracle fusion application-software as a service
+
+so we all pay broadband bill/mobile bill right? at the month end
+
+in exactly similar fashion, for using SaaS product from oracle -we get a bill from oracle at month end
+
+which says these many users are configured and this is the amount to be paid
+
+plenty of adv:
+no upfront expenditure
+no need to do any maintainance 
+no need to have teams to look after applications
+
+because of these reasons 99% no 100% of the companies have a hybrid IT landscape
+
+which means a typical client might use salesforce to manage their customers
+salesforce is no.1 CRM product to manage customers
+
+same client might be using ADP to run a payroll
+
+same client might be using oracle finance modules in ERP cloud and they might be using HCM cloud
+
+and that same client might be using Oracle e-business suite manufacturing modules
+
+they might also have some on-prem applications as well
+
+so if you look at landscape of any IT company/client today-this is how it looks-like a hybrid IT landscape
+
+what does it mean to us? as integration specialists?
+
+It means that we need to deal with 3 key integration challenges:
+1. how do you integrate one oracle cloud application with another cloud application
+
+2. how do you integrate cloud applications with non oracle cloud applications
+
+3. how do you integrate oracle cloud applications or non oracle cloud applications with on prem applications
+
+oracle cloud application: Oracle Sales, HCM, ERP, SCM, Service, CPQ, Marketing
+
+non oracle cloud applications: ADP, Salesforce, AI, IoT, Blockchain etc
+
+on prem application: oracle ebusiness suite, oracle JDEdwards, Oracle peoplesoft, SAP.
+
+
+
+
+
 
 
 
