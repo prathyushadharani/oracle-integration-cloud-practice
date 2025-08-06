@@ -1,1 +1,50 @@
+Why do we need product like OIC in todays world?
+
+If we look at the IT landscape of companies say 5-10 years back, 
+and say am running a manufacturing firm and we need to install E-Business suite 
+what should we do?
+
+we need to go to Oracle , buy required application and database servers
+They need to ship them and we need to receive them at our location 
+and we need to onboard an Oracle application DBA Team -
+a team of 5-10 members
+The team would install the application on those servers
+
+after application installation is done remember
+my team would be responsible for keeping the application running 24*7,
+disaster recovery, maintanance , applying any upgrdes, upgrade application once in a while
+
+disadvantages:
+1) huge upfront investment to buy the servers
+2) maintain a team to look after the application
+3) also spend some time looking after the application to keep it up and 
+running
+
+but gone are those days:
+now if you go to oracle and say I want to use oracle finance modules in 
+cloud
+what we need to do
+
+you dont need to buy the servers
+you dont need to have the team
+you dont have to install it
+
+Oracle will look at our base location-say for example we are based 
+out of hyderabad
+Oracle has a data center in hyderabad itself
+
+what would oracle do?
+oracle would go to hyderabad datacenter and in one of the machines/servers 
+of hyd data center it would install oracle fusion cloud application
+
+oracle would also share a link to access oracle fusion cloud instance url
+so after the oracle fusion application is installed in cloud in the datacenter
+closest to your location, they would be sharing the application url with you and
+
+-we would access the oracle applications installed in cloud
+-cloud means the application is installed in one of the oracle datacenters
+
+now when we access the oracle application url, we wouldbe redirected to a sign in page 
+
+
 
