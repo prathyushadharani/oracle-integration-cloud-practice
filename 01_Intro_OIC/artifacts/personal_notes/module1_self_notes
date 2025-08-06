@@ -112,7 +112,13 @@ non oracle cloud applications: ADP, Salesforce, AI, IoT, Blockchain etc
 
 on prem application: oracle ebusiness suite, oracle JDEdwards, Oracle peoplesoft, SAP.
 
+For above 3 challenges OIC has an easy answer 
 
+some other integration challenges:
+1. legacy style integration and deployment is too complex
+2. data couldnt be moved easily from cloud to on-premises and vice versa
+3. business process automation not aligned with application integration
+4. analytics were mostly local, not cross application and cross departmental
 
 
 
