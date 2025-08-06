@@ -1,7 +1,17 @@
-Doubt 1:
-----------------
-i have a few doubts-i agree that there is no huge upfront investment but at the end of the month we still have to pay the amount and we do not know how much it is where as on premise we know the cost
 
+
+### ❓ [Doubt Title or Topic]
+**Q:** [Your question]
+**A:** [ChatGPT/expert/notes-based explanation]
+
+---
+
+
+---
+
+### ❓ [Doubt Title or Topic] Intro to OIC
+**Q1:** [Your question] I have a few doubts-i agree that there is no huge upfront investment but at the end of the month we still have to pay the amount and we do not know how much it is where as on premise we know the cost
+**A:** [ChatGPT/expert/notes-based explanation]
 
 ChatGPT said:
 That’s an excellent doubt — and you’re absolutely thinking like a tech-savvy business user. Let’s address it clearly, because this question comes up in real-world stakeholder discussions, especially with finance teams or senior decision-makers.
@@ -77,8 +87,11 @@ Integrations like OIC can be scheduled instead of real-time to reduce API cost
 ✅ Final Takeaway for Your Notes or Interviews:
 While SaaS removes upfront infrastructure costs, it introduces ongoing operational costs that must be monitored and forecasted carefully.
 The key advantage is agility and scalability, but without governance, cost surprises can occur.
+---
 
-------------------------------
+
+
+
  doubt 2:
 
  but even without cloud integration specialist still has the responsibility to connect, sync automate flows between multiple systems right?
