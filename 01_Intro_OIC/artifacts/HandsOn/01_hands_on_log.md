@@ -60,6 +60,45 @@ This hybrid setup leads to **complex integration needs**.
 ## 📌 Notes to Self
 
 - SaaS model eliminates infrastructure complexity but increases **integration responsibility**
+
+- When companies adopt SaaS apps:
+
+Their data and processes now live in the cloud, outside their direct control
+
+But their business still relies on multiple systems (HR, Finance, CRM, Payroll, etc.)
+
+Since these systems:
+
+Don’t talk to each other natively
+
+Live in different platforms, vendors, or even regions
+
+→ The responsibility to connect them, sync data, and automate flows now falls on the customer, not the SaaS vendor.
+
+And that’s where YOU (an OIC integration specialist) come in.
+
+
 - Companies prefer agility > ownership
 - OIC exists because **data must still flow**, even across SaaS, on-prem, and 3rd-party tools
 
+Let’s decode this.
+
+Ownership = "I want to control everything — own servers, install software, have teams to manage it."
+
+Agility = "I want to move fast — subscribe to cloud apps, roll out quickly, and adapt without setup delays."
+
+Today, companies prioritize agility because:
+
+They want to go live fast
+
+Try new tools without long-term commitment
+
+Save money on infra, people, and licenses
+
+Stay competitive by adapting quickly to change
+
+So they’re happy to let go of full “ownership” of their infrastructure, as long as they can move faster.
+
+🔗 Summary (you can use this in your notes):
+SaaS frees businesses from the burden of infrastructure, but introduces the challenge of integration and orchestration.
+Companies today value speed and flexibility (agility) more than controlling every part of their tech stack (ownership).
