@@ -1,3 +1,11 @@
+prasad:
+20+ years exp
+7+ in OIC
+worked with HSBC etc
+5 PCS, 5 VBCS-actual implementations
+
+---------------------------------
+
 Why do we need product like OIC in todays world?
 
 If we look at the IT landscape of companies say 5-10 years back, 
@@ -14,7 +22,7 @@ after application installation is done remember
 my team would be responsible for keeping the application running 24*7,
 disaster recovery, maintanance , applying any upgrdes, upgrade application once in a while
 
-disadvantages:
+disadvantages of onprem applications:
 1) huge upfront investment to buy the servers
 2) maintain a team to look after the application
 3) also spend some time looking after the application to keep it up and 
