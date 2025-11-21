@@ -1,0 +1,391 @@
+📘 Oracle Integration Cloud – Curiosity Questions & Answers
+
+A beginner-friendly + interview-ready guide
+
+## 📌 Overview
+
+This document contains 26 powerful curiosity-provoking questions on Oracle Integration Cloud (OIC), each with:
+
+Simple explanation (for beginners)
+
+Real-time example
+
+Interview-style answer
+
+Perfect for:
+
+Fast learning
+
+Interview prep
+
+Daily revision
+
+Real project understanding
+
+# 🧠 1. If two systems send data at the same time, how does OIC decide which runs first?
+Simple Explanation
+
+OIC executes requests in parallel. Every incoming event creates a separate integration instance.
+
+Real-Time Example
+
+If Shopify, Amazon & Magento send orders at 10:00:02, OIC runs 3 instances parallelly.
+
+Interview Answer
+
+“OIC is event-driven and supports parallel execution. Each trigger creates its own instance.”
+
+# 🧠 2. Can an integration run WITHOUT any trigger?
+Simple Explanation
+
+Yes, using a Scheduled Integration.
+
+Real-Time Example
+
+Fetch DB records daily at 2 AM → sync to ERP.
+
+Interview Answer
+
+“Scheduled integrations run automatically without external triggers.”
+
+# 🧠 3. What happens if a REST trigger receives invalid JSON?
+Simple Explanation
+
+OIC returns 400 Bad Request and does NOT start the integration.
+
+Real-Time Example
+
+If mobile app sends { "id": }, OIC rejects it.
+
+Interview Answer
+
+“OIC validates inbound payload. Invalid JSON fails before the flow starts.”
+
+# 🧠 4. Can one integration call another integration?
+Simple Explanation
+
+Yes—using REST/SOAP invoke.
+
+Real-Time Example
+
+Order Integration → Customer Integration → Email Integration.
+
+Interview Answer
+
+“This is Integration Chaining for reusability.”
+
+# 🧠 5. Can an integration work even when the target system is down?
+Simple Explanation
+
+Yes—use Stage File, Queues, or DB staging.
+
+Real-Time Example
+
+ERP is down → invoice file stored → retry later.
+
+Interview Answer
+
+“We design resilient flows using staging + retry patterns.”
+
+# 🧠 6. How do you transform completely different source & target structures?
+Simple Explanation
+
+Using Mapper with:
+
+Drag-and-drop
+
+Functions
+
+Loops
+
+Real-Time Example
+
+JSON order → XML invoice.
+
+Interview Answer
+
+“OIC mapper supports looping, conditions, and rich functions.”
+
+# 🧠 7. How to debug a complex map without running the whole integration?
+Simple Explanation
+
+Use Mapper Test / Validate.
+
+Real-Time Example
+
+Load sample JSON → see mapped XML.
+
+Interview Answer
+
+“We can test transformations independently inside the mapper.”
+
+# 🧠 8. What does Smart Mapping do?
+Simple Explanation
+
+Auto-maps fields with matching names.
+
+Real-Time Example
+
+CustomerName → CustomerName.
+
+Interview Answer
+
+“Smart mapping accelerates development but must be reviewed.”
+
+# 🧠 9. When should you use Lookups?
+Simple Explanation
+
+When converting value → value
+(e.g., codes to names).
+
+Real-Time Example
+
+A: "CA" → B: "California".
+
+Interview Answer
+
+“Lookups externalize cross-reference logic.”
+
+# 🧠 10. How do lookups behave with 10,000+ rows?
+Simple Explanation
+
+Performance remains stable; OIC loads lookup into memory.
+
+Real-Time Example
+
+Country code tables.
+
+Interview Answer
+
+“OIC preloads lookups so large ones still perform well.”
+
+# 🧠 11. Can OIC process a 1GB file?
+Simple Explanation
+
+No.
+Max limit ~50 MB depending on adapter.
+
+Real-Time Example
+
+200MB file → rejected.
+
+Interview Answer
+
+“OIC is not an ETL tool; file limits apply.”
+
+# 🧠 12. Why does OIC split big files automatically?
+Simple Explanation
+
+To avoid memory overload (chunking).
+
+Real-Time Example
+
+Supplier file broken into 200-record batches.
+
+Interview Answer
+
+“OIC uses chunking for reliability.”
+
+# 🧠 13. Can a scheduled integration skip execution if no new data?
+Simple Explanation
+
+Yes—use a decision step.
+
+Real-Time Example
+
+0 new rows → exit.
+
+Interview Answer
+
+“Scheduled flows can self-terminate based on conditions.”
+
+# 🧠 14. What happens if scheduler runs while a deployment happens?
+Simple Explanation
+
+Running instance finishes → next run uses new version.
+
+Interview Answer
+
+“OIC uses safe versioning during deployment.”
+
+# 🧠 15. How do you build automatic error-handling & retry?
+Simple Explanation
+
+Use Fault Handler + Retry Integration.
+
+Real-Time Example
+
+Failed invoices → sent to retry queue → retried later.
+
+Interview Answer
+
+“I design global fault handlers + retry patterns for resilience.”
+
+# 🧠 16. Where does OIC store faults? Can we reprocess one record?
+Simple Explanation
+
+Stored in Monitoring → Errors.
+Yes—you can reprocess individual messages.
+
+Interview Answer
+
+“OIC supports granular reprocessing.”
+
+# 🧠 17. How does OIC talk to an on-premise DB securely?
+Simple Explanation
+
+Using Connectivity Agent installed inside customer network.
+
+Real-Time Example
+
+Hospital DB → Agent → OIC.
+
+Interview Answer
+
+“It creates a secure outbound tunnel—no exposure of DB.”
+
+# 🧠 18. What happens if the connectivity agent goes down?
+Simple Explanation
+
+Integrations fail or retry based on config.
+
+Real-Time Example
+
+Agent down 5 mins → requests fail → resume on recovery.
+
+Interview Answer
+
+“OIC returns connection failure if agent is unavailable.”
+
+# 🧠 19. How does OIC upload a file to ERP UCM & trigger ESS job?
+Simple Explanation
+
+Steps:
+
+Upload file to UCM
+
+Run ESS job
+
+Real-Time Example
+
+Upload supplier file → run “Import Suppliers”.
+
+Interview Answer
+
+“This is the standard FBDI pattern.”
+
+# 🧠 20. Why two steps (UCM + ESS)?
+Simple Explanation
+
+ERP Cloud needs:
+
+File in UCM
+
+Job to process file
+
+Interview Answer
+
+“FBDI requires upload + job execution.”
+
+# 🧠 21. Can a VBCS app trigger an integration?
+Simple Explanation
+
+Yes—via REST call from a button.
+
+Real-Time Example
+
+“Create Invoice” button → OIC → ERP.
+
+Interview Answer
+
+“VBCS integrates seamlessly with OIC using REST.”
+
+# 🧠 22. Can VBCS update ERP directly?
+Simple Explanation
+
+Through OIC (not directly).
+
+Real-Time Example
+
+Form → OIC REST → ERP.
+
+Interview Answer
+
+“VBCS calls OIC integrations which handle ERP communication.”
+
+# 🧠 23. How do human tasks pause a PCS process?
+Simple Explanation
+
+Process waits until user completes the task.
+
+Real-Time Example
+
+Manager approval.
+
+Interview Answer
+
+“PCS uses BPMN human task constructs.”
+
+# 🧠 24. Can PCS trigger different integrations based on conditions?
+Simple Explanation
+
+Yes—using gateways.
+
+Real-Time Example
+
+Order > 10k → Approval integration
+Else → Auto process
+
+Interview Answer
+
+“PCS supports conditional integration invocation.”
+
+# 🧠 25. Smart handling of partial successes in ERP invoice loads?
+Simple Explanation
+
+Split:
+
+Successful
+
+Failed
+Retry only failed.
+
+Real-Time Example
+
+100 invoices: 95 success → reprocess 5.
+
+Interview Answer
+
+“Design batches to support partial reprocessing.”
+
+# 🧠 26. End-to-end flow: REST → OIC → DB → UCM → ESS → ERP
+Simple Explanation
+
+Full FBDI pipeline:
+
+REST trigger
+
+Stage file
+
+DB insert / CSV
+
+Upload to UCM
+
+Trigger ESS
+
+Poll job status
+
+Send final response
+
+Interview Answer
+
+“This is the enterprise-grade OIC blueprint pattern.”
+
+# ⭐ Final Notes
+
+This file can be added to GitHub as:
+
+OIC/
+ ├── Curiosity-Questions/
+ │     └── OIC-Curiosity-Questions-And-Answers.md
+ └── README.md
