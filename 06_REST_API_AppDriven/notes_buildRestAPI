@@ -1,1 +1,11 @@
+There are two places from where you create integrations in OIC
+1) Design->Integrations
 
+  use when: there is only 1 integration team with 4-10 members
+            no need of access control
+2) Projects
+
+  use when: we have multiple teams and one team should not see other teams integrations
+  These teams could be patitioned by country or offering-that doesnt matter
+          ex: FIN Cloud, HCM Cloud, SCM cloud
+              or UK team, US team, AUS team etc 
