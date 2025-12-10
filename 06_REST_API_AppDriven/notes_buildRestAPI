@@ -17,5 +17,17 @@ though we can achieve access control with most of the integrations but we cant d
 
 some integration patterns like agents are available only under deisgn screen
 
+first usecase: Build REST API
+
+take first name as input
+prefix hello
+send response as hello firstname
+
+when we build integration we need to follow 7-8 steps . so to understand all the steps lets start with helloworld first.
+This called development workflow : has 6-7 steps ->we would see lots of new screens for the first time in OIC. focus on developement workflow.
+
+prerequisite step to do integration is creating required connections.
+
+
 
 
