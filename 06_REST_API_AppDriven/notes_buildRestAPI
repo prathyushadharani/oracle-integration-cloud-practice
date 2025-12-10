@@ -28,6 +28,12 @@ This called development workflow : has 6-7 steps ->we would see lots of new scre
 
 prerequisite step to do integration is creating required connections.
 
+1) for this usecase: do we need to talk to any external system? NO
+only little string transformation and send response
+
+2) after we build this integration(REST API) , should client be able to trigger this rest api? yes
+so for this integration we need one connection->we are going to create this connection over REST adapter
+Bcoz a trigger connection would determine weather a integration will be exposed as SOAP or REST.
 
 
 
