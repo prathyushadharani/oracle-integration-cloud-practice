@@ -9,3 +9,11 @@ There are two places from where you create integrations in OIC
   These teams could be patitioned by country or offering-that doesnt matter
           ex: FIN Cloud, HCM Cloud, SCM cloud
               or UK team, US team, AUS team etc 
+
+The options under Design: Integrations, Connections, Events, Lookups, Libraries(first 5 options) are also present in Projects
+But still there are some integration patterns for ex: if we want to use a connectivity agent to talk to on-prem application
+Agents are only available under Design
+though we can achieve access control with most of the integrations but we cant do with all of them.
+
+
+
