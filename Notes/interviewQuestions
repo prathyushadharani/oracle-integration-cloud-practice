@@ -1,1 +1,128 @@
+Oracle SOA interview Questions and Answers:
+Oracle SOA – Question 1
+In an Oracle SOA composite, what is the role of a Mediator, and how is it different from a BPEL process?
+BPEL Process
+•	Designed for stateful, long-running orchestration
+•	Supports:
+o	Parallel & sequential flows
+o	Compensation & fault handling
+o	Complex business logic
+•	Best choice when:
+o	You need process flow control
+o	You need to maintain state
+o	You have human tasks, timers, or wait activities
+Mediator
+•	Designed for stateless, lightweight mediation
+•	Mainly used for:
+o	Routing
+o	Filtering
+o	Simple XSLT transformations
+o	Event handling (EDN)
+•	Best choice when:
+o	You need fast, synchronous message handling
+o	You don’t need to maintain state
+________________________________________
+⭐ One-line interview comparison (very powerful)
+BPEL is for complex, stateful orchestration, while Mediator is for lightweight, stateless routing and transformation.
+
+Oracle SOA – Question 2
+What is the difference between an abstract WSDL and a concrete WSDL?
+Abstract WSDL defines the service contract — what operations exist and what messages are exchanged — while Concrete WSDL defines the implementation details such as protocol, binding, and endpoint location.
+If you want to sound extra strong, add this one line:
+Abstract WSDL is protocol-independent, while Concrete WSDL is protocol-specific.
+
+Oracle SOA – Question 3 (Surprise)
+In Oracle SOA, what is the difference between a business fault and a system fault?
+👉 Explain:
+•	What causes each
+•	How they are typically handled
+Key refinements (important for Oracle SOA interviews)
+Business Fault
+•	Expected fault
+•	Explicitly modeled in the WSDL
+•	Thrown deliberately using fault activity in BPEL
+•	Used when:
+o	Input is valid XML
+o	Business rule fails
+Examples:
+•	Insufficient balance
+•	Salary exceeds limit
+•	Invalid order quantity
+👉 Keyword: expected / modeled / functional
+________________________________________
+System Fault
+•	Unexpected fault
+•	Caused by infrastructure or runtime issues
+•	Not defined by business
+•	Happens automatically
+Examples:
+•	Adapter unavailable
+•	Database down
+•	Timeout
+•	SOAP fault due to system error
+👉 Keyword: unexpected / technical / runtime
+________________________________________
+⭐ Best 2-line interview answer (memorize this)
+Business faults are expected, business-defined errors explicitly modeled in the WSDL and thrown intentionally, whereas system faults are unexpected technical errors caused by infrastructure or runtime failures.
+________________________________________
+💡 Extra SOA-specific point (bonus)
+•	Business faults → usually caught using specific fault handlers
+•	System faults → often caught using catch-all (catchAll) fault handlers
+
+Answer each in 1–2 lines, no overthinking.
+________________________________________
+Q1
+What is the purpose of tracking in an Oracle SOA composite?
+________________________________________
+Q2
+What is an XSD targetNamespace, and why is it important?
+________________________________________
+Q3
+Difference between synchronous and asynchronous service in SOA?
+________________________________________
+Q4
+What is the use of fault policies (fault-policy.xml) in Oracle SOA?
+________________________________________
+Q5
+Why do we use adapters (DB, File, FTP, JMS) in Oracle SOA instead of direct calls?
+Q1 – Tracking
+Your answer: ✅ Correct idea
+You’re right about debugging and tracing process flow.
+Polished answer:
+Tracking is used to monitor and audit the flow of instances in a composite, helping with debugging, auditing, and business monitoring.
+✔️ Mention audit trail / instance tracking → interview keyword
+________________________________________
+Q2 – XSD targetNamespace
+Your answer: ✅ Mostly correct
+You correctly said where elements are defined and reused via XMLNS.
+Polished answer:
+targetNamespace uniquely identifies the XML elements defined in an XSD and avoids name conflicts when schemas are reused.
+✔️ Add “avoids name collisions” → very important keyword
+________________________________________
+Q3 – Sync vs Async
+Your answer: ⚠️ Small correction needed
+Synchronous ≠ stateful necessarily.
+Correct version:
+Synchronous service waits for an immediate response, while asynchronous service does not block and receives the response later via callback or separate flow.
+✔️ Key distinction = blocking vs non-blocking, not stateful
+________________________________________
+Q4 – Fault Policies
+Your answer: ✅ Correct
+You nailed this.
+Interview-perfect line:
+Fault policies externalize fault handling logic such as retry, rethrow, or human intervention without changing the composite code.
+✔️ Keyword: externalize fault handling
+________________________________________
+Q5 – Adapters
+Your answer: ✅ Correct but generic
+Let’s sharpen it.
+Strong answer:
+Adapters provide standardized, reusable, and transactional connectivity with built-in error handling, security, and retry mechanisms.
+✔️ Keywords interviewers love:
+•	Standardized
+•	Transaction management
+•	Built-in retry
+
+________________________________________
+
 
