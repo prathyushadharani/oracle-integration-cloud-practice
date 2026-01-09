@@ -220,6 +220,60 @@ by keyword , name or description
 
 the option 'share with other projects' lets discuss after 4-5 sessions.
 
+In one of the sessions lets understand 30 mins to understand it.
+
+The moment you craete REST trigger conn we will be able to see 3 options.
+
+1) Use a shared connection
+2) configure a connection ->Security->security policy OAuth 2.0
+3) Access Type: Public gateway , Private endpoint
+
+just remeber we have these 3 options. we will discuss it later.
+
+the connection is configured 100%
+Test and Save: PRADH_HELLO_WORLD_REST_CONN
+now we created a REST trigger connection->go back and see the connection created.
+
+
+Question:
+coming to role trigger and invoke 
+is the endpoint url in invoke static? we can update and we should be able to update
+but role is somethinng we canjot change
+
+bcoz in dev instance you have dev erp logins
+in prod you nee dto change it to prod
+
+so you should be able to change url but not role
+
+now lets create integration:
+
+when we create integartion there are 3 styles to choose from:
+application
+schdule
+event
+
+we would choose application style bcoz client would choose to trigger our integration from another application
+
+same story with name and identifier
+you also see version number->in version number we see 3 parts ->major, minor, batch
+major and minor are 2 characters long batch is 4 characters long
+total 10 chars long with dots
+
+when you are creating integration it would default to 01.00.0000->we would leave it as it.
+
+Lets learn this when we do an administration session toward the end of integration track
+learn versioning and cloning of integration and migration
+
+
+create below conn:
+PRADH Hello World REST API
+
+the moment you create integration it prompts you to build the integration
+
+
+
+
+
 
 
 
