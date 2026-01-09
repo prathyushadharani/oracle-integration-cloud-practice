@@ -170,6 +170,12 @@ and uses it in the integration
 
 1 week later
 
+say ABC wants to create an other integration and in his usecase he needs to receive the items updates done in ERP Cloud 
+and he has to post the item details to on prem database table
+
+so his integration requirement is whenever item is updated in ERP cloud his integration is triggered and 
+that item update information should be merged to ATP table
+
 
 
 
