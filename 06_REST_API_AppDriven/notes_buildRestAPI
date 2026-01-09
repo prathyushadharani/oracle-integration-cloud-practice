@@ -268,7 +268,80 @@ learn versioning and cloning of integration and migration
 create below conn:
 PRADH Hello World REST API
 
-the moment you create integration it prompts you to build the integration
+the moment you create integration it prompts you to go ahead build the integration
+first thing you see is blank integration and it is prompting to create trigger integration first.
+
+now before we go ahead and build integration lets talk about access control
+
+now say we created this project as prathyusha (like if logged in as prathyusha)
+and if you want to see who got access to this integration you goto share button and 
+can see prathyusha as the usename in owner field
+
+so you can see it
+
+and am the only person to have acces sto it
+
+if we go ahead and try to login to oic instance not as prathyusha but as user1
+go to prjects->his username would be applied as filter i.e user1->remove that filter
+he would be able to see UG86 or PRADH
+assume user1 is from other team and should not be able to see it
+
+now when he clicks on UG86 he would get an access error saying doesnt have sufficient privileges
+But what if user is my teammate or this user should have access to my proj
+
+then you can go to share option and can give different kinf of privileges to the users like
+edit , view, monitor privileges
+
+So I can decide what kind of privilege sto give to different users
+
+if I give monitor->then if user is from support team you can give this access
+this user trie sto get in ->he would be able to get in but since he is given only monitor access he cannot see design or deploy
+but he can only observe it
+
+he cannot design and deploy it
+
+but if that person should be able to see integartion code but should deploy ->in that case we add him view and remove from monitor
+
+now he would be able to see Design tab enabled
+
+now if he tried to open integration he would be able to see it but he can only view it
+
+he cannot make any changes to the integration
+bcoz he is given view only access
+
+edit : then he would be able to build integrations, see integrations ,
+
+now there is a possibility that multiple developers might work on the same project at the same time from different locations
+
+say i weant to edit from hyd, abc wants to edit from chennai-> so they might get overridden
+
+to avaoid that OIC would apply lock on it once the integration is opened to edit it
+
+so the other user can see the changes being made by the person who locked it but cant make changes
+the other user can see who locked it and when by clicking on the simple dropdown option
+
+the lock gets released when the user comes out of the editor screen by clickling on the back arrow/button->lock will be released
+
+now that lock is released the integration is in draft status now abc can go and edit it
+
+but tell me one thing:
+
+lock gets released when you click on back button but practically do we always click on back button ?
+assume its friday evening and in a hurry to leave office and closed browser abruptly
+now is the lock released?
+no
+bcoz i didnt click on back button
+now the other developer has to wait
+so other developer should ping and ask the delveloper who locked it
+now he should release lock and only then other developer can work on it
+
+other person who can unlock it is admin
+say user1 locked
+user2 wants to unlock
+but only user1 or admin can unlock the integration
+
+
+
 
 
 
