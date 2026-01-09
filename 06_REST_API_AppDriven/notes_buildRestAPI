@@ -132,6 +132,49 @@ so role cannot be changed after we create a connection
 also connections should be leveraged accross integrations
 
 
+lets assume prathyusha is creating integration->lets assume we are building real time integration->
+am the first developer to create an ERP related integration and starting off with journal import service
+
+so what are the first steps:
+
+step 1 :
+she needs to create a SOAP Trigger connection->assume its already done
+we receive journal payload here
+step 2: 
+second connection we need to create in the integration /service is?
+we need to use ERP connection to invoke journal import service in CLoud
+
+assume trigger conn already created
+now we are trying to create a ERP connection
+
+and say UG86 ERP Conn
+
+assume ERP Conn and trigger conn are created
+assuem we are the first ones to create ERP related integration in proj
+
+what would we use this ERP connection as in this integartion?
+
+want to use this connection to invoke journal import service
+also want to invoke import journal CSS job (ERP inetgartion service)
+
+so we want to use ERP connection to invoke couple of services in ERP Cloud
+what is the role we need to select?
+
+if we think of this connection from this integration standpoint then which role is ok?
+invoke is ok 
+
+so we would create a trigger connection
+and now we create ERP connection
+and since we need to to invoke couple of services we select role as invoke and we create it
+and uses it in the integration
+
+1 week later
+
+
+
+
+
+
 
 
 
