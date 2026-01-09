@@ -213,7 +213,13 @@ Especially when its REST or SOAP connections we normallay choose individual role
 But whenever we create connections with other systems such as ERP Cloud, salesforce or database
 we would always create role as trigger and invoke
 
-so for our integration REST adapter we are gonna choose it as Trigger conn
+so for our integration REST adapter we are gonna choose it as explicit Trigger conn
+
+while creating the connection->keywords and description would help us in searching the connection
+by keyword , name or description
+
+the option 'share with other projects' lets discuss after 4-5 sessions.
+
 
 
 
