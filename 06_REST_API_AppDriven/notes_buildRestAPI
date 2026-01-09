@@ -50,6 +50,49 @@ Invoke
 Trigger and Invoke
 
 explaining the above options with journal import service as example: so its easier to understand
+UG58 Journal import service:
+This is the integration we are building for banking client.
+assume that its hsbc banking system.
+the banking client would trigger the integration from hsbc core banking system
+
+and they would be passing journal payload as input.
+after we receive journal payload as input, 
+first of all when we build a integration the first connection you use in integration is called trigger connection
+its the starting point of integration
+
+another way to look at it is 
+there is an incoming payload into oic instance 
+ex: hsbc core banking system triggers your integration and passes journal input --
+->you can look it as inbound message
+its called inbound message coming into oic from outside world
+
+so trigger is a inbound message
+
+After we receive a journal payload what are we going to do?
+we are using ERP cloud connection here:
+if you hover on the component it shows popup ->the second line tells you which adpater it is
+
+we are using oracle erp cloud adapter to invoke journal import service
+so within the integration apart from the trigger connection->any other connection we use in the integration is 
+called invoke connection
+
+meaning we use this connection to invoke something in a different application
+we call it as invoke connection
+
+what are two ways to explain invoke connection?
+apart from the first connection everyother connection in the integration is called invoke connection
+
+another way to look at it is:
+it is an outbound message going out from oic to different system
+
+So,
+Trigger is a starting point
+It is an inbound message-incoming message
+Invoke is any other subsequent connection
+It is an outbound message-outgoing message
+
+
+
 
 
 
