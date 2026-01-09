@@ -91,6 +91,17 @@ It is an inbound message-incoming message
 Invoke is any other subsequent connection
 It is an outbound message-outgoing message
 
+So when you create a connection you need to chose what role you need to assign for the connection:
+In our case we want to use PRADH Hello World REST Conn connection as a starting point to trigger my integration
+
+so when we create a connection as trigger we will be able to use it as a first node in any integration
+
+and if I create a connection with role as Invoke 
+whenever I create a integration 
+click on plus icon ->i cannot see this connection as the first connection/starting node
+But once trigger connection is created in integration you could see and use this invoke connection
+
+
 
 
 
