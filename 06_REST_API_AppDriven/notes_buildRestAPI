@@ -176,6 +176,51 @@ and he has to post the item details to on prem database table
 so his integration requirement is whenever item is updated in ERP cloud his integration is triggered and 
 that item update information should be merged to ATP table
 
+so in this usecase ABC has to use ERP connection as trigger as starting point in integration
+
+and he has to select one option which says: receiveBusinessEventsInERPCloud and he should select itemUpdate unit
+
+when I created this integration I created ERP cloud conn already with ROLE as invoke.
+Now will ABC be able to use this connection as first node in his integartion?
+No it doesnt show in the drop down
+
+so ABC doesnt have a choice ->if he tries will he be able to change the role of the already created ERP conn i created?
+no
+
+so he should create another conn with role trigger or trigger or invoke
+
+so whats the take away:
+
+when you are creating connections with the generic systems like HCM cloud or ERP cloud or salesforce or FTP or database
+
+if you are the first person to craete a conn-> dont just think of the integration you are going tobuild 
+
+we should think->we might use this as invoke in our integration but its erp connection so we might have to use it as trigger as well
+
+so to avoid duplicate connection ->which could be created by ABC 
+
+now DEF might say why not create every connection as trigger and invoke? 
+problem is -> we might not have enoough information to plug in that information
+
+The moment you create connction and if you mention you want to use this connection to trigger the integration its fine 
+But if you have to use this connection to invoke REST API's , oic  would prompt you 
+to enter which REST API do you want to call/invoke with this connection.
+
+Until I mention REST endpoint URL you wont be able to test the connection.
+
+It means that not every connection can be create as Trigger and Invoke
+Especially when its REST or SOAP connections we normallay choose individual roles
+But whenever we create connections with other systems such as ERP Cloud, salesforce or database
+we would always create role as trigger and invoke
+
+so for our integration REST adapter we are gonna choose it as Trigger conn
+
+
+
+
+
+
+
 
 
 
