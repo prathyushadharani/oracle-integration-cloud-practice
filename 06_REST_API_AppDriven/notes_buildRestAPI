@@ -101,6 +101,37 @@ whenever I create a integration
 click on plus icon ->i cannot see this connection as the first connection/starting node
 But once trigger connection is created in integration you could see and use this invoke connection
 
+so trigger means->first node in integration
+invoke means->not first node but any other node
+
+so trigger is clear, invoke is clear 
+
+But what about trigger and invoke?
+This is where many students are confused.
+
+Before explaining 
+Role is something that you choose while you create a connection
+after you hit the create button
+
+please note that you wont be able to change the role->point 1
+so be careful and ensure you choose right role
+
+point 2: when we create connection we need to ensure to make use of them to the extent possible in the integrations
+see connection is something that you create 1 per system
+
+so if you create 100 integrations realted to ERP cloud , how many connections you would create with ERP cloud adapater?
+best practice is 1 connection
+
+the job of the connection is to establish the connectivity with the system
+once the connectivity  is established with one connection
+we would be using the same connection in all the integration flows
+
+so we would create 1 connection with ERP CLoud 1 with HCM cloud and so on ...
+
+so role cannot be changed after we create a connection
+also connections should be leveraged accross integrations
+
+
 
 
 
