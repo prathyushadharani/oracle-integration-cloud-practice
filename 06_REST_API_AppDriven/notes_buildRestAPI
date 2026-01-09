@@ -19,12 +19,13 @@ some integration patterns like agents are available only under deisgn screen
 
 first usecase: Build REST API
 
-take first name as input
+take first name as input of type string
 prefix hello
 send response as hello firstname
 
 when we build integration we need to follow 7-8 steps . so to understand all the steps lets start with helloworld first.
-This called development workflow : has 6-7 steps ->we would see lots of new screens for the first time in OIC. focus on developement workflow.
+This is called development workflow : has 6-7 steps ->we would see lots of new screens for the first time in OIC. 
+focus on developement workflow.
 
 prerequisite step to do integration is creating required connections.
 
@@ -34,6 +35,23 @@ only little string transformation and send response
 2) after we build this integration(REST API) , should client be able to trigger this rest api? yes
 so for this integration we need one connection->we are going to create this connection over REST adapter
 Bcoz a trigger connection would determine weather a integration will be exposed as SOAP or REST.
+
+Create a connection with REST Adapter:
+
+1) Go to Projects->Connections->Create Connection->Search REST
+Name: PRADH Hello World REST Conn
+as we type the name, identifier would be generated automatically.
+everything from the name is converted in to caps and all the spaces in the name are converted to underscore in the identifier
+
+whenever you create a connection you need to choose a role for it->this is a important selection that you make
+There are 3 options to choose the role:
+Trigger
+Invoke
+Trigger and Invoke
+
+explaining the above options with journal import service as example: so its easier to understand
+
+
 
 
 
