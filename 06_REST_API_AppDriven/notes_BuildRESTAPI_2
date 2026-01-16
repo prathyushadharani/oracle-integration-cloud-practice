@@ -1,2 +1,40 @@
 REST API-Video 7-Part2 
+We created REST API (PRADH Hello World REST API) and we need to configure the trigger node first.
+we can see the trigger connection popping up
+we need to configure the trigger connection first.
+
+Configure Basic Info:
+(REST Trigger)
+
+when we configure the trigger connection it prompts us to give a name to the endpoint.
+(What do you want to call your endpoint?
+For examplae: GetListOfOpportunitiesForCustomer)
+
+this can be anything like abc
+But lets see what our RESTAPI does.
+It takes firstName(String) as input, prefix Hello and send it back as response
+
+since it says hello lets name endpoint as 'sayHello'
+
+sayHello
+
+Whenever you build a REST API in OIC remember -from one single REST API that you can build 
+you can expose multiple branches or 
+you can configure multiple endpoints if required
+
+since this is our first rest api we will not configure multiple branches or multiple endpoints
+
+we will do only 1 operation
+But we will notice in integrations like PO REST API (Purchase order rest api-5th integration)
+we will see how to expose multiple rest endpoints/multiple operations/multiple branches
+from 1 single rest api
+
+just in case we need to have multiple branches in REST API we need to tick 
+the box that says 'Select to configure multiple resources or verbs.(maximum 11)
+
+
+
+
+
+
 
