@@ -32,6 +32,87 @@ from 1 single rest api
 just in case we need to have multiple branches in REST API we need to tick 
 the box that says 'Select to configure multiple resources or verbs.(maximum 11)
 
+since its our first api lets have only 1 branch and lets configure it as GET endpoint so lets not tick
+
+*provide an operation name
+default
+we need to think of what would the operation do?
+*what does the operation do?
+it takes firstname (string) as input , prefix hello and send back in response
+
+whenever we are building a restapi what are the 2 important things we need to consider?
+lets go to documentation url of rest api and see
+ex: banks ->get all banks-> method :GET ; Path: /fscmRestApi/resources/11.13.18.05/cashBanks
+
+so there are two things: method and Path
+
+
+*what is the endpoints relative resource URI?
+/sayHello
+
+this is nothing but the relative path that we see in the documentation of rest api
+so after we put a slash we can mention any path that we want like /abc
+but better give a meaningful path so lets say /sayHello
+
+*what action do you want to perform at the endpoint?
+GET (many methods -GET, PUT, POST,DELETE,PATCH)
+
+the above ar ethe methods we can choose from but we will chose GET here bcoz
+all client would be doing is when they would hit the endpoint
+pass in first name as input and want to get back a response
+since they pass first name and get back output
+within this rest api we are not doing any creation or any update operation
+in which case we would use POST or PATCH method
+
+
+now what is the input we want to receive?
+firstname:
+
+what is one way to recive inputs into REST API's?
+1. Template Parameters
+
+ex: 
+Get a bank
+Method: GET
+Path: /fscmRestApi/resources/11.13.18.05/cashBanks/{BankPartyId}
+
+so here we mention input parameter in curly braces in the relative resource URI path
+
+*what is the endpoints relative resource URI?
+/sayHello/{firstName}
+
+what if we want to receive lastname also as parameter then we would add as following:
+/sayHello/{firstName}/{lastName}
+
+now when we mention template parameters like this in the relative path
+like fn and ln
+and go to next screen by clicking on continue
+we will be able to see 
+ignore query parameters for now
+lets focus on template parameters
+
+we will be able to see Template parameters section
+(this section is not visible if template parameters are not mentioned in relative URI path)
+
+in template parameters we see firstname and lastname
+(whatever is mentioned in curly braces)
+
+in this section we see that string datatype is assigned
+we can change the datatype
+
+for query parameters you can explicitly add /delete query parameters but
+there is no option like that for template parameters
+
+so how many ever you mention in the path those many will be created under
+template parameter section by default
+
+so what we see in template parameter section would be controlled by what we mentioned in the path
+
+go to next screen
+
+
+
+
 
 
 
