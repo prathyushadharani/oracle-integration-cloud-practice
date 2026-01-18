@@ -57,7 +57,7 @@ but better give a meaningful path so lets say /sayHello
 *what action do you want to perform at the endpoint?
 GET (many methods -GET, PUT, POST,DELETE,PATCH)
 
-the above ar ethe methods we can choose from but we will chose GET here bcoz
+the above are the methods we can choose from but we will chose GET here bcoz
 all client would be doing is when they would hit the endpoint
 pass in first name as input and want to get back a response
 since they pass first name and get back output
@@ -109,6 +109,18 @@ template parameter section by default
 so what we see in template parameter section would be controlled by what we mentioned in the path
 
 go to next screen
+
+lets see how will the end point look like if below is the realtive path->
+/sayhello/{firstname}/{lastname}
+
+the moment you activate the rest api there will be an endpoint url generated->
+that url looks like below:
+
+https://unogeeksprodoic-idud9bfrw0-ia.integration.us-ashburn-1.ocp.oraclecloud.com/ -OIC Instance link
+ic/api/integration/v2/flows/rest - common suffix->prefix to all rest api's
+/project/UG86/UG86_HELLO_WORLD_REST_API -/project/projectname/project identifier or short name
+/1.0/sayHello/{firstName}/{lastName} - version number within integration/whatever relative path we mention will show at the end of url
+
 
 
 
