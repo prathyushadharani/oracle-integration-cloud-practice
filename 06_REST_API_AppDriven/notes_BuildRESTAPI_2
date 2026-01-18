@@ -122,6 +122,36 @@ ic/api/integration/v2/flows/rest - common suffix->prefix to all rest api's
 /1.0/sayHello/{firstName}/{lastName} - version number within integration/whatever relative path we mention will show at the end of url
 
 
+when we share this endpoint url with client , client will trigger the rest api
+with the help of the endpoint url and since we have firstname and lastname 
+as template parameters the client would be passing them in the url as below:
+
+https://unogeeksprodoic-idud9bfrw0-ia.integration.us-ashburn-1.ocp.oraclecloud.com/
+ic/api/integration/v2/flows/rest
+/project/UG86/UG86_HELLO_WORLD_REST_API
+/1.0/sayHello/John/Doe
+
+
+2nd way of passing parameters to rest api is take out template parameters
+
+in configure request parameters screen if we dont mention anything in curly braces
+in resource uri path
+do we see any template parameters in next screen? NO
+the template parameters section itself is missing
+
+but we can add query parameters
+but we need to add them explicitly
+select datatype
+
+ex: fName -string
+lName-string
+
+now when we activate the integration we will only have below as url:
+
+https://unogeeksprodoic-idud9bfrw0-ia.integration.us-ashburn-1.ocp.oraclecloud.com/
+ic/api/integration/v2/flows/rest
+/project/UG86/UG86_HELLO_WORLD_REST_API
+/1.0/sayHello
 
 
 
