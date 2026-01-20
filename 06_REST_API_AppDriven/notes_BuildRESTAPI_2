@@ -223,6 +223,48 @@ in this case how do we create input parameter i.e supplier or buyer?
 
 query parameters
 
+-----
+input parameter->primary key-> template
+input parameter-> not primary key-> query
+
+-----
+
+imp point:
+we need to send response back in our integratio that we are creating
+for that we need to check one checkbox
+we need to tick it
+configure the endpoint to receive the response
+
+now in the output tab or configure response tab
+we need to configure json sample response
+we can either upload json files
+or 
+enter the sample json payload
+
+what we want to send back in response? just hello name
+{
+"Greeting": "Hello ABC"
+}
+
+This is just a sample and this only helps with the datatype
+
+finish trigger node creation+oic will also configure a response element
+and in between those two we will also be able to see a mapper getting created
+
+the mapper is in dotted line
+it means that the mappings are not done yet
+
+The layout we see would be vertical->
+we can change the layout to horizontal
+
+we can also choose outline option
+if we choose outline we can also see what adapter or connection is being used
+
+ex: Trigger sayHello using PRADH_Hello World REST Conn connection of type REST
+Map from sayHello to say Hello
+
+lets get into the wrapper now:
+
 
 
 
