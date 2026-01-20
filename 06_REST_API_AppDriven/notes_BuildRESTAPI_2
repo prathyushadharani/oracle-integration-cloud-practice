@@ -153,6 +153,88 @@ ic/api/integration/v2/flows/rest
 /project/UG86/UG86_HELLO_WORLD_REST_API
 /1.0/sayHello
 
+no parameters 
+
+now below is the format in which client can pass the query parameters
+
+https://unogeeksprodoic-idud9bfrw0-ia.integration.us-ashburn-1.ocp.oraclecloud.com/
+ic/api/integration/v2/flows/rest
+/project/UG86/UG86_HELLO_WORLD_REST_API
+/1.0/sayHello?q=fName=Sachin&lName=Tendulkar
+
+query parameters should be passed in above format particulaly
+questionmark q eualsto firstparameter name & second parameter name and pass values
+
+question?
+
+when to use template? when to use query?
+
+lets take banks rest api as example and understand
+when we recive an input into your rest api and if that input parameter is a 
+primary key
+and when you hit the database you get only one record
+then you create it as template parameter
+
+ex: to get bank details
+oracle configured bankpartyid as primary key
+
+/facesRestApi/resources/11.13.10.05/cashBanks/{BankPartyId}
+
+so since BankPartyId is primary key we only get 1 record from database
+-configure as template parameter
+
+But if you want to get bank details based on country or other criteria
+wherein you might get multiple banks 
+we need to use query parameter
+
+bcoz in one country there could be many banks
+
+
+so 1 question that we need to ask is 
+the input that you got will fetch one record or multiple records from database
+if 1- template parameters
+if multiple-query parameters
+
+ex: if we are building a purchase order (PO) REST API -> 
+and in this rest api you will expose 1 rest endpoint to create a purchase order in cloud
+so client would hit this endpoint, pass in PO Details and in that branch
+we write logic to create PO in ERP Cloud and get PO header Id and other details back in response
+
+now lets say client wants you to expose 2 more endpoints
+
+and say in first endpoint we will send PO header ID as input
+now we should go to the PO header table and get PO header ID, details from there
+or give PO header ID and get details related to it from database table
+
+remember PO Header ID is a primary key
+now what do you configure it as? template or query?
+
+template parameter
+
+now say client wants one more get endpoint and the client says
+I will pass in buyer name as input or supplier name as input 
+Client wants to get all the purchase orders(POs) of that supplier 
+or created by buyer
+
+there could be multiple PO's created against that supplier or created by 
+the buyer
+
+in this case how do we create input parameter i.e supplier or buyer?
+
+query parameters
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
