@@ -369,6 +369,116 @@ this above is mapped to Greeting attribute
 if you go into mapper and see what do you see?
 concat (&quot;Hello &quot; , /nstrgmpr:execute/nstrgmpr:TemplateParameters/ns20:firstName)
 
+the only difference is &quot;
+quote symbol is represented as &quot; in xslt
+
+we always do mappings in designer and oic would keep generating code in the background
+
+but it works both ways so if you change somechanges in the code that would be reflected in designer screen as well
+
+sometimes what happens is when you mess up something in the designer screen
+like doing a wrong mapping
+the entire mapper might go blank
+
+in which case we go to the code
+and from the code tab we would take out the last mapping we have done
+
+or in the code view we also have undo and redo options which we can use
+
+or an another place where we use code view is 
+say there is some transformation in the code
+
+say there are 2 source attributes firstname and lastname
+say there is another target attribute called greeting2
+
+lets say whatever we are doing on firstname we need to do on lastname and assign to greeting2
+
+in source/code view you can go and copy the mapping of firstname to greeting and paste it and modify little the source and target attributes in code
+instead of directly mapping
+
+since this is simple scenario not necessary but when we have if, choose and big logic this copy paste thing would be helpful
+
+----
+we have option looks like play button to test the mapper
+we can generate inputs
+that would generate a sample payload
+it tries to mimic as if client is trying to hit your mapping
+
+pass firstname1->run->Hello firstName1 would be assigned to Greeting atttribute
+
+we can also erase the mapping
+generate inputs again freshones
+
+run
+
+this tells as if the mapper is working as expected
+
+in this simple transformation we might know the impact or we may not appreciate
+but it helps in complex mappings
+bcoz in complex mappings we need to know if transformations are working or not
+
+in the xslt design view:
+in designer mode 
+the names are in Caps
+
+in developer mode of xslt
+we see the letters as configured by developer
+
+(we have a separate option of Developer-its either enabled or disbaled)
+
+this just changes the way how we see attributes but we normally dont do anything here
+
+we have one option XSLT beside developer
+
+when we go to toggle functions we usually see only 2 options->
+functions and operators
+
+but the moment you enable XSLT we can see one more option XSL Constructors
+
+if we uncheck we can only see 2 options
+
+XSL Constrcutors-> flow control->choose, foreach, foreach group, if, otherwise, when
+XSL Constructors->Output->
+
+we will see them in journal import service
+
+we also have an option to choose datatypes of the fields (like eye symbol)
+
+sometimes when we map and test we might get datatype mismatch error
+
+it might say you are trying to map string to number field
+so its good to know datatype of the fields
+
+we also have a filter option where we can go and apply filters
+source ->fields(all, mapped, unmapped), types, sources
+Target->fields, types, validations
+
+these are useful when there are 100 attributes but we want to see only mapped attributes
+
+we have undo redo options
+we have options to maximize minimize
+
+sometimes when there are 100's of attributes the search options on source and target
+are very useful
+
+we have connectivity properties on the target side- we never use it
+we have integration metadata on source side->lets talk about this in journal import service
+tracking variables are present on the source side we will talk in detail about it tomorrow
+
+come out of the mapper
+
+go ahead and save integration
+we need to activate and test the api
+
+so lets stop here
+
+
+
+
+
+
+
+
 
 
 
