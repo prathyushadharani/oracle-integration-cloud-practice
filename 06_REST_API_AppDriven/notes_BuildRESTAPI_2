@@ -263,7 +263,23 @@ if we choose outline we can also see what adapter or connection is being used
 ex: Trigger sayHello using PRADH_Hello World REST Conn connection of type REST
 Map from sayHello to say Hello
 
-lets get into the wrapper now:
+lets get into the mapper now:
+
+the moment you get into the mapper you see a source and the target
+on the source when we expand we see template parameters and first name
+where has this come from?
+from relative path-> /sayHello/{firstName}
+in the response we see Greeting.
+where has this Greeting come from?
+from response sample json
+{
+"Greeting" : "Hello ABC"
+}
+
+
+now how do you do mapping?
+click on firstname drag and go drop it on Greeting
+the moment you assign firstname to greeting you will notice that a box opens at the bottom.
 
 
 
