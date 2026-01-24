@@ -1,1 +1,18 @@
 REST Integration -part3
+we created REST API, Also configured trigger connection
+we created mapper as well-reciving first name as input, prefixing hello 
+and sending back response
+
+now the next step is
+we need to activate the rest api and test it
+
+
+right now integration is in draft status
+when integration is in draft status we will not see activate option
+
+
+
+
+
+
+
