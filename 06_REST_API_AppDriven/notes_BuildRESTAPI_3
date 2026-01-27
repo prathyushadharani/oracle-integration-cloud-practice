@@ -22,11 +22,32 @@ we cick on business identifiers (I) option->
 from here we will have option to enable tracking identifiers
 
 remember ->on a rest API we can have upto 3 tracking identifiers
-and you need to have atleast 1
-
-which is a primary tracking identifier
+and you need to have atleast 1-which is a primary tracking identifier
 
 now what is the exact usage of this identifier?
+
+now lets go to (I) Business Identifiers
+primary business identifiers
+variable undefined 
+(x) business identifier field
+choose firstName from input sources->sources->execute->TemplateParameters->firstName
+drag this source on to business identifier field: this field should be updated by drag and drop from source tree
+business identifier variable
+tracking_var_1(default)
+this field changes to firstName
+
+the moment you add firstName as tracking identifier
+tracking_var_1=firstName
+is shown in variable undefined position
+
+now once you click save->the status of the integration changes from draft to configured
+
+Draft         ->      Configured       ->      Active
+        Enable Tracking           Activate
+
+
+ 
+
 
 
 
