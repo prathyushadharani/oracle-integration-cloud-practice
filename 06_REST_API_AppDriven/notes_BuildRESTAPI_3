@@ -157,6 +157,66 @@ now since integration is working share the url with client
 
 we can use postman->mimic as if client is invoking  rest apifrom another application
 
+test from postman->replace firstName with value->test ->fail(401 unauthorized)->authentication failure
+
+now how do you know which auth to use?
+when ever you call integration in oic how do you know in what format you pass authentication details?
+go to integration->in integration there is trigger connection->which has security policy-> this will determine
+how you pass authentication
+
+OAuth 2.0
+basic auth
+OAuth 2.0 or basic auth
+
+say lets choose basic auth
+
+test coonnection->for this change to take effect in oic->save->save and reactivate
+integration will be saved->deactivated and gets reactivated again
+
+now go back to postman pass basic authentication-> oic username and password
+ugoic.user1
+and its password
+
+we enter these on authorization tab in postman for that url
+
+click send on postman
+
+now we get response
+{
+"Greeting":"Hello Sachin"
+}
+
+when we do unit test integration we can see instance id's
+but we dont see instance id's in postman
+
+now say there are 200 requests one failed and now how do client track the instance? 
+they give us firstname and we using tracking identifier should go and search in oic with firstname provided by client
+
+now what the problem?
+we are sharing oic instance link
+oic username
+oic password with client
+
+now the client can act smart and login to oic
+this is why we should never ever be using basic auth
+
+unless we dont have a choice
+when client /3rd paty would say open authorization-(oauth) is not allowed or 
+they dont have capability to generate oauth tokens
+
+in such cases we dont have choice but use basic auth(25:50 mins done)
+
+now what to do? login to OCI
+
+what we did in day 5 session? we did 3 things.
+1. went into identity and security->created users and oic instance
+2. went into oracle cloud services->search unogeeks prod oic instance within oic instance
+assign roles to oic users
+set service admin role->give name
+user role->developer
+
+now if you share ugoic.user1 user login details who is assigned as developer entire content of oic stands exposed
+
 
 
 
