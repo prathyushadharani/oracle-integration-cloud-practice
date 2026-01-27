@@ -123,13 +123,37 @@ Request
 URI parameters
 already checkedbox firstName unogeeks1111
 
+go ahead and click run
+
 Response
-status: instance ID:
+status: 200 OK instance ID:22 char string (aC1hB63yEe-COaUkO-YGCQ)
 Body Headers
-1
+1 {
+"Greeting" : "Hello unogeeks1111"
+}
 
+Activity stream pops up when you click run:
+ we see payload response and complete instance activity
 
+now we are in test phase , can we see these intances anywhere else in OIC? yes
 
+go to OIC console->Observability->Instances->here you see instances
+
+you can filter number of instance syou can see based on 24 hours or 1 hour ->many instances will be present
+it will be difficult for us to track our intgeration instance
+
+how do we track it then?
+on what basis?
+with the help of tracking identifiers
+
+primary identifier instance id status business identifiers duration
+firstName:unogeeks aC1hB63yEe-COaUkO-YGCQ succeeded               received 6 mins ago
+link to see integration code (just below primary identifier)
+to look what happened in integration during runtime clcik on primary identifier
+we can see activity stream and green path
+wecan search for instances with primary or secondary tracking identifiers
+
+now since integration is working share the url with client
 
 
 
