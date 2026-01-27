@@ -273,7 +273,14 @@ Add application details:
 name: UG86-OAuth-App
 dont need to enter anything else just go to next screen
 
-3. 
+3. we have 2 options
+resource server configuration
+client configuration->select this
+
+in authorization: enable client crdentials
+
+
+
 
 
 
