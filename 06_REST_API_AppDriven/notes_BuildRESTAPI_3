@@ -265,6 +265,17 @@ and now that token is what the client application would use to call the rest api
 
 let see how this is implemented
 
+1.how do we register client in IDCS
+go to integrated applications->add application->select confidential application->click lauch workflow
+
+2.Add Confidential Application:
+Add application details:
+name: UG86-OAuth-App
+dont need to enter anything else just go to next screen
+
+3. 
+
+
 
 
 
