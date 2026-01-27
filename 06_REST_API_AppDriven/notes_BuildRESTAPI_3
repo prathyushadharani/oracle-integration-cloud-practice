@@ -46,7 +46,27 @@ Draft         ->      Configured       ->      Active
         Enable Tracking           Activate
 
 
- 
+ now when you click on 3 dots beside the integration now it shows an option to activate
+when you click on activate you see
+activate integration window popup from right
+for UG86 Hello Word REST API (1.0)
+
+it has below options:
+select tracing level
+Production
+Audit
+Debug (Not recommended)
+(debug has a warning that says->additionally, all payloads and all activities inside loops(upto 1000 iterations) are shown in the 
+activity stream and this data is retained for a period of 24 hours. it may slowdown your system and also pose a security risk
+as sensitive information from payload will be logged.)
+
+configure runtime options
+checkbox allow to run again
+when you run again an integration,it creates a new instance and rund againa ny transactions
+
+checkbox enable payload validation
+
+
 
 
 
