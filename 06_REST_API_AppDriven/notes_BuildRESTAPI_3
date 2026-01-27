@@ -240,6 +240,34 @@ but lets pass auth as basic auth from postman
 doesnt work (401 unauthorized) error
 (32 mins done)
 
+this is bcoz of mismatch even if it is valid username and password
+
+lets see how oauth works.
+in materials we have 1.0.1.OAuth in OIC.docx
+for oic instance we created users
+we added users to roles within oic instance
+
+there is IDCS attached to OIC
+
+but for OAuth we go to IDCS->instead of registering user->we register a client or apllication in OCI
+now we have client ID and secret generated
+
+
+now we share these with client
+all these will be done by admin
+
+now client application will hit IDCS token endpoint url and pass ID and secret as input->instead of username and password
+token will validate if valid client
+if yes->token endpoint url will throw a token back->thats the oauth token
+
+and now that token is what the client application would use to call the rest api in oic
+-------
+
+let see how this is implemented
+
+
+
+
 
 
 
