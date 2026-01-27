@@ -218,6 +218,32 @@ user role->developer
 now if you share ugoic.user1 user login details who is assigned as developer entire content of oic stands exposed
 
 
+so now create a user and assign the user to service invoker role
+serviceInvoker:
+that user with serviceInvoker role is what i would share with 3rd party
+
+so if a person with a serviceInvoker role logs into oic instance what would he see?
+he doesnt get to see anything at all
+search oic roles in google->what users can do in the navigation pane by role->this table tells you what each role can see in oic
+
+so these cred created here can only be used for invoke
+
+so basic auth is not recommended at all but if client says no choice then we give cred to user with service invoker rule assigned
+
+always prefer OAuth token
+
+benefit: no need to share username and password with 3rd party
+
+lets change auth to OAuth 2.0 save &reactivate
+
+but lets pass auth as basic auth from postman
+doesnt work (401 unauthorized) error
+(32 mins done)
+
+
+
+
+
 
 
 
