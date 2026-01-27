@@ -155,6 +155,9 @@ wecan search for instances with primary or secondary tracking identifiers
 
 now since integration is working share the url with client
 
+we can use postman->mimic as if client is invoking  rest apifrom another application
+
+
 
 
 
