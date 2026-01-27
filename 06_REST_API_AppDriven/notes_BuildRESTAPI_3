@@ -1,6 +1,6 @@
 REST Integration -part3
 we created REST API, Also configured trigger connection
-we created mapper as well-reciving first name as input, prefixing hello 
+we created mapper as well-receiving first name as input, prefixing hello 
 and sending back response
 
 now the next step is
@@ -8,7 +8,30 @@ we need to activate the rest api and test it
 
 
 right now integration is in draft status
-when integration is in draft status we will not see activate option
+when integration is in draft status we will not see activate option when you click on 3 dots
+
+when will we see option to activate integration?
+by default integration will be in draft status
+and after we enable tracking on the integration,
+integration status changes to configured,
+then we can go ahead and activate integration
+
+so get into the API,
+so after we get into Integration->how do we enable tracking?
+we cick on business identifiers (I) option->
+from here we will have option to enable tracking identifiers
+
+remember ->on a rest API we can have upto 3 tracking identifiers
+and you need to have atleast 1
+
+which is a primary tracking identifier
+
+now what is the exact usage of this identifier?
+
+
+
+
+
 
 
 
