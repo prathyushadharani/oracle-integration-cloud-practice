@@ -51,11 +51,11 @@ when you click on activate you see
 activate integration window popup from right
 for UG86 Hello Word REST API (1.0)
 
-it has below options:
+it has below 3 options: rb(radio button)
 select tracing level
-Production
-Audit
-Debug (Not recommended)
+rb Production
+rb Audit
+rb Debug (Not recommended)
 (debug has a warning that says->additionally, all payloads and all activities inside loops(upto 1000 iterations) are shown in the 
 activity stream and this data is retained for a period of 24 hours. it may slowdown your system and also pose a security risk
 as sensitive information from payload will be logged.)
@@ -66,11 +66,67 @@ when you run again an integration,it creates a new instance and rund againa ny t
 
 checkbox enable payload validation
 
+now lets not explore anything else but only enable trace level as debug and activate the integration
+
+after clicking on activate and going back to integration and clickling on 3 dots->we see run option
+
+you will see configure and run screen
+
+you will see method name: GET
+URI path (ic/api/integration..../{firstName}
+
+Request
+URI parameters
+already checkedbox firstName textbox
+
+Response
+status: instance ID:
+Body Headers
+1
+
+we also have 2 buttons on right corner : endpoint metadata and track instances
+--------------------
+now what do we get to see?
+
+when you click on endpoint metadata
+pop up from right shows:
+metadata swagger openapi
+in metadata
+endpoint description
+endpoint URL
+https://unogeeksprodoic-...../UG86/UG86_HELLO_WORLD_REST_API/1.0/sayHello/{firstName}
+(client will trigger our api using this url)
+swagger
+https://unogeeksprodoic-...../UG86/UG86_HELLO_WORLD_REST_API/1.0/metadata/swagger
+openapi
+https://unogeeksprodoic-...../UG86/UG86_HELLO_WORLD_REST_API/1.0/metadata/openapi
+urls are shown
+
+resource/sayHello{firstName}
+method GET
+Response
+Response media type: application/json
+Response sample
+{"Greeting":"Hello ABC"}
 
 
+all the above things are shown on screen
 
 
+but can we just share url with client? no we should first do unit test and then confirm its working fine then ask 3rd party to call our integration
 
+now add value of firstname it gets displayed in the URL also
+
+URI path (ic/api/integration..../sayHello/unogeeks1111
+
+Request
+URI parameters
+already checkedbox firstName unogeeks1111
+
+Response
+status: instance ID:
+Body Headers
+1
 
 
 
