@@ -327,6 +327,39 @@ https://idcs-f1275........identity.oraclecloud.com:443
 now remove 443
 
 to the endpoint url we need to pass in a suffix
+https://idcs-f1275........identity.oraclecloud.com/oauth2/v1/token
+
+this is teh token endpoint url that i need to call by passing client id and client secret
+
+now its a POST call that we need to do
+
+from a rest api we can do a post call to that endpoint url
+
+in postman->create a new request
+select post from dropdown
+in authorization details select basic auth
+now pass client id and client secret in username and password
+
+in the body we need to pass a couple of parameters
+we need to pass
+
+grant type-client_credentials (tells that its not actual username/password 
+we are passing but its client id and client secret)
+and 
+scope (if we go to production oic instance->go to OAuth->
+we will be able to see primary audience
+
+and to that primary audience
+we need to copy the first scope that we see under scopes section
+
+so scope=primary audience+scope->this is the full scope that we need to use
+
+now when we hit the service we get access token in response->thats the oauth token 
+that we need to pass
+when we call the rest api
+
+step 3: call rest api using this token
+
 
 
 
