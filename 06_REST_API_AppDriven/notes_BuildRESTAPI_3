@@ -306,6 +306,25 @@ now say we want our client to trigger only the rest OIC instances in prod not in
 go to next screen->nthg to enter here
 default selected skip and do later->finish
 
+now step 1 of getting client ID and secret is completed
+------------------------------------------------------
+lets go to step 2
+
+hitting token endpoint url by passing client ID and secret, so we get an OAuth token
+
+q1-? where do I get token endpoint URL from?
+now if we go back into Identity Domain Cloud Service->Domains->default
+
+remember in OCI there is a default domain called dafault
+click on default->there you will see domain URL with show/copy options
+copy and paste it
+
+in that domain endpoint url we will have 443 as the port
+
+
+
+
+
 
 
 
