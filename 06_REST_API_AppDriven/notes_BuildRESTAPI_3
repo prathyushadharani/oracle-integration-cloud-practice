@@ -256,8 +256,9 @@ now we have client ID and secret generated
 now we share these with client
 all these will be done by admin
 
-now client application will hit IDCS token endpoint url and pass ID and secret as input->instead of username and password
-token will validate if valid client
+now client application will hit IDCS (identity cloud service) token endpoint url and pass ID and secret as input->
+instead of username and password
+->token will validate if valid client
 if yes->token endpoint url will throw a token back->thats the oauth token
 
 and now that token is what the client application would use to call the rest api in oic
@@ -277,7 +278,37 @@ dont need to enter anything else just go to next screen
 resource server configuration
 client configuration->select this
 
-in authorization: enable client crdentials
+in authorization: enable client crdentials and resource owner options->check the checkboxes
+
+the moment you enable client credentials->there would be a client ID and client secret that would be generated
+
+when we scroll down
+after we hit endpoint we get a token->with that token->
+what resources in OCI would you be able to access? not OIC.
+that would be controlled by what you mention in authorized resources section when you scroll down ->
+this is under token issuance policy
+
+we have 2 radio buttons
+1. all
+2. specific
+
+say we selected specific
+
+check ->add resources
+click on add scope->
+a search box appears->search for production OIC instance here->check it
+click add
+
+there will be 2 entries->2 scopes added
+
+now say we want our client to trigger only the rest OIC instances in prod not in dev or any other env
+
+go to next screen->nthg to enter here
+default selected skip and do later->finish
+
+
+
+
 
 
 
