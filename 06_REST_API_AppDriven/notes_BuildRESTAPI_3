@@ -320,6 +320,14 @@ click on default->there you will see domain URL with show/copy options
 copy and paste it
 
 in that domain endpoint url we will have 443 as the port
+but since its https connection it will always be 443
+
+https://idcs-f1275........identity.oraclecloud.com:443
+
+now remove 443
+
+to the endpoint url we need to pass in a suffix
+
 
 
 
