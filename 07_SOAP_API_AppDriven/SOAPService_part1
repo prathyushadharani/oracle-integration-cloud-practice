@@ -33,9 +33,13 @@ and while using the rest conn as trigger conn we have given the connection prope
 request payload, response payload
 
 which means if you change the name of ug86 hello world rest conn to ug86 rest conn
-then you can use this rest conn for another PO integration with different input and output
+then you can use this rest conn for another PO integration or AR invoice with different input and output
 bcoz input and output that is request and response are configured in integration in the trigger conn
 not in the conn itself
+
+so how many times can you use the REST Conn? multiple times.
+
+but thats not the case with SOAP connection.
 
 
 
