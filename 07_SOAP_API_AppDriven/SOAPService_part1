@@ -16,3 +16,27 @@ test the soap service wsdl using soap ui
 we are doing this simple usecase to understand how a soap service works in oic
 
 
+WSDL:
+
+1) abstract wsdl 
+2) concrete wsdl 
+
+step 1: create required conn
+do we need to talk to external systems? NO
+
+UG86 Hello World SOAP Conn-Role: Trigger
+
+in REST trigger conn we only provided security details(oAuth 2.0) while configuring rest trigger connection-
+which means we did not provide any connection details while configuring the REST conn
+
+and while using the rest conn as trigger conn we have given the connection properties like endpoint uri etc,
+request payload, response payload
+
+which means if you change the name of ug86 hello world rest conn to ug86 rest conn
+then you can use this rest conn for another PO integration with different input and output
+bcoz input and output that is request and response are configured in integration in the trigger conn
+not in the conn itself
+
+
+
+
