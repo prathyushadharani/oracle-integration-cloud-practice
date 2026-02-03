@@ -1,1 +1,18 @@
+build soap service in oic
+usecase: build a soap service in oic which takes string name as input, prefix hello and send it back as response
+
+1)create trigger conn with soap adapter
+
+trigger conn determines:
+whether your integration is exposed as soap or rest
+what request payload needs to be passed to invoke integration
+
+build the integration
+
+activate the integration
+
+test the soap service wsdl using soap ui
+
+we are doing this simple usecase to understand how a soap service works in oic
+
 
