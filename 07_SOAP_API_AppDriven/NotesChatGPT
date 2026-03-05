@@ -1,1 +1,182 @@
+Perfect — I’ll turn this Session 9 transcript into a **clean “Build 1st SOAP service in OIC” cheat-sheet** (based strictly on what your trainer said), and also pull out **interview points**.
+
+## Session 9 goal
+
+Build the **2nd integration** in OIC, but this one is exposed as a **SOAP service**:
+
+* **Input:** `firstName`
+* **Output:** `greeting` = `"Hello " + firstName`
+* No external systems involved (no ERP/HCM/Salesforce) → only a **trigger connection** is needed.
+
+---
+
+## Why they included this “simple” SOAP demo
+
+1. To show the **exact difference between REST trigger vs SOAP trigger in OIC**
+2. To introduce **Abstract WSDL vs Concrete WSDL** concepts (and when/why you use each)
+
+---
+
+## REST trigger vs SOAP trigger (trainer’s key comparison)
+
+### REST trigger connection (pattern)
+
+* In the **REST connection**, you typically set **only Security Policy**.
+* You **do not** define request/response structures inside the REST connection.
+* When building the integration, at the **trigger configuration step**, you define:
+
+  * Sample request payload
+  * Sample response payload
+* Meaning: **One REST trigger connection can be reused** to build many REST APIs (hello API, PO API, AR Invoice API…), because payloads are defined per-integration.
+
+### SOAP trigger connection (pattern)
+
+* In a **SOAP connection**, you **must provide** one of:
+
+  * **Concrete WSDL URL**, or
+  * **Abstract WSDL file upload**
+* And you typically **cannot keep the SOAP connection “empty”** like REST.
+
+Trainer’s note:
+
+* Building SOAP services is **rare** compared to REST.
+* And **99%** of the time, SOAP trigger uses **Concrete WSDL URL** (best practice).
+* Using **Abstract WSDL in trigger** is **rare**, but he’s demonstrating it so you recognize it if it appears in a project.
+
+---
+
+## Abstract WSDL vs Concrete WSDL (how they explained it)
+
+### Abstract WSDL = like a PL/SQL package specification
+
+Contains:
+
+* Types (XSD data types)
+* Messages (request/response)
+* PortType + Operations
+* Binding
+  **But missing:** Service endpoint details and implementation details.
+
+So it defines **what** operations exist and **what data** they use — not where it runs.
+
+### Concrete WSDL = Abstract + Service endpoint
+
+Concrete WSDL includes everything above plus:
+
+* **Service + Endpoint URL**
+* Represents the **implemented and deployed** service.
+
+Trainer’s phrasing:
+Abstract WSDL → “specification”
+Concrete WSDL → “implemented web service with endpoint URL”
+
+---
+
+## Build steps (exact flow from transcript)
+
+### 1) Create SOAP trigger connection
+
+* Adapter: **SOAP**
+* Role: **Trigger**
+* In the connection:
+
+  * Upload **Abstract WSDL** (shared in their material folder)
+  * Security policy default: **Username Password Token**
+* **Test connection**
+* **Save**
+
+### 2) Create integration
+
+* Pattern: **App Driven Orchestration**
+* Name like: “Hello world SOAP service” (name doesn’t matter for behavior)
+* Trigger: pick your **SOAP connection**
+* Choose operation (from WSDL): e.g., **greeting** (or greeting2)
+
+  * Selecting the operation determines:
+
+    * request payload (firstName)
+    * response payload (greeting)
+
+### 3) Mapping logic
+
+* OIC auto-creates:
+
+  * Response node
+  * Map
+* Update mapping:
+
+  * `greeting = concat("Hello ", firstName)`
+
+### 4) Enable tracking
+
+* Move integration status to **Configured**
+* **Activate**
+
+### 5) SOAP testing (important limitation)
+
+* REST APIs can be tested **inside OIC UI**
+* SOAP services **cannot be tested directly in OIC UI**
+* After activation:
+
+  * Go to **Run details**
+  * Copy the generated **WSDL URL** (this is the **Concrete WSDL**)
+* Test using a tool like **SoapUI**
+
+---
+
+## Security policy + why your first SoapUI call failed
+
+* SOAP trigger security policy was **Username Password Token**
+* In SoapUI, you first tried **Basic Auth** → mismatch → got **401 Unauthorized**
+* Fix:
+
+  * Add SOAP Header:
+
+    * **WS-Security UsernameToken**
+* Token options:
+
+  * **PasswordText** (password visible as text in header) ✅ worked in their instance
+  * **PasswordDigest/hashed** (preferred in real-time; but trainer said digest wasn’t working in their demo environment)
+
+Key takeaway:
+
+> Don’t “try random auth methods.” Always check the **Trigger Connection → Security Policy** to know what format credentials must be in.
+
+---
+
+## 3 things the trigger connection determines (trainer’s “must remember”)
+
+1. Whether integration is exposed as **REST or SOAP** (based on adapter type)
+2. What **authentication format** is required (based on security policy)
+3. What becomes the **request/response payload**
+
+   * REST: defined during trigger configuration in integration
+   * SOAP: determined by selected **WSDL operation** (messages/types)
+
+---
+
+## One line that answers the learner question at end
+
+> “If we need to build 10 SOAP integrations, do we need 10 different connections?”
+> Trainer: **Yes** (because SOAP connection is tied to WSDL/operations, unlike REST reuse).
+
+---
+
+## Interview-ready Q&A (based only on this session)
+
+**Q1. Why can one REST trigger connection be reused for many APIs, but SOAP usually can’t?**
+A: REST trigger connection doesn’t carry request/response structures; they’re defined per integration. SOAP trigger connection depends on WSDL and operations, so you typically need separate connections.
+
+**Q2. Abstract vs Concrete WSDL?**
+A: Abstract WSDL defines types/messages/operations/binding (spec), but no endpoint/service. Concrete WSDL adds service/endpoint URL after deployment.
+
+**Q3. How do you know which auth to use when calling an OIC service?**
+A: Check the **Integration’s Trigger Connection → Security Policy**. That dictates Basic Auth vs OAuth vs UsernameToken, etc.
+
+**Q4. Can SOAP services be tested inside OIC like REST?**
+A: No (as per session). Use the generated WSDL URL and test with external tools like SoapUI.
+
+---
+
+If you want, I can also convert this into a **1-page “Session 9 Notes” format** you can paste into your OIC notebook, and a **mini mock interview** (10 questions) just for SOAP trigger + WSDL + security policy.
 
