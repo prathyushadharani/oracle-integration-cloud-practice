@@ -1,1 +1,123 @@
 
+Awesome — here are both: a **1-page Session 9 notes sheet** + a **mini mock interview (10 Qs)**.
+
+## Session 9 — Build 1st SOAP Service in OIC (UnoGeeks) — 1-page Notes
+
+### Objective
+
+Expose an OIC integration as a **SOAP service**:
+
+* **Request:** `firstName`
+* **Response:** `greeting = "Hello " + firstName`
+* No external systems → only **trigger** side is used.
+
+---
+
+### REST vs SOAP trigger (core difference)
+
+**REST Trigger**
+
+* Connection: mostly **only Security Policy**
+* Request/Response defined **inside integration trigger configuration** (sample JSON/XML)
+* Same REST trigger connection can be reused for many APIs.
+
+**SOAP Trigger**
+
+* Connection must include **WSDL**:
+
+  * **Concrete WSDL URL** (common / best practice)
+  * **Abstract WSDL file** (rare, but shown here)
+* In integration, you pick **an operation** → that operation decides request/response.
+
+---
+
+### Abstract WSDL vs Concrete WSDL
+
+**Abstract WSDL (specification-like)**
+
+* Types (XSD), Messages, PortType/Operations, Binding
+* Missing **Service + Endpoint URL**
+* No implementation logic
+
+**Concrete WSDL (deployed)**
+
+* Abstract WSDL + **Service section + endpoint URL**
+* Generated after integration is activated
+
+---
+
+### Build steps (what you did)
+
+1. **Create SOAP Trigger Connection**
+
+   * Adapter: SOAP
+   * Role: Trigger
+   * Upload **Abstract WSDL**
+   * Security policy default: **Username Password Token**
+   * Test + Save
+
+2. **Create Integration**
+
+   * Pattern: **App Driven Orchestration**
+   * Trigger: SOAP connection
+   * Select operation (e.g., `greeting`)
+   * OIC auto-creates **Map + Response** because operation has response message
+
+3. **Mapping**
+
+   * `greeting = concat("Hello ", firstName)`
+
+4. **Enable tracking → Activate**
+
+---
+
+### Testing SOAP service (important)
+
+* REST can be tested within OIC UI
+* SOAP **cannot** be tested directly in OIC UI
+* After activation:
+
+  * Go to **Run details**
+  * Copy generated **WSDL URL** (Concrete WSDL)
+  * Test in **SoapUI** (or similar)
+
+---
+
+### Security policy + SoapUI failure/fix
+
+* Connection policy: **Username Password Token**
+* Trying **Basic Auth** → **401 Unauthorized**
+* Fix in SoapUI:
+
+  * Add **WS-Security UsernameToken** in SOAP Header
+  * PasswordText worked in demo; PasswordDigest (hashed) is preferred normally (trainer said digest had an issue in their instance)
+
+---
+
+### 3 things the Trigger Connection decides
+
+1. Expose integration as **REST or SOAP** (adapter)
+2. **Auth format** required (security policy)
+3. Request/Response payload:
+
+   * REST: chosen in integration trigger config
+   * SOAP: chosen by **WSDL operation**
+
+---
+
+## Mini Mock Interview — Session 9 Focus (10 Qs)
+
+Reply with your answers (short is fine). I’ll correct and polish them like interview style.
+
+1. In OIC, what makes an integration get exposed as **SOAP vs REST**?
+2. What’s the difference between **Abstract WSDL** and **Concrete WSDL**?
+3. Why can one REST trigger connection be reused for many APIs, but SOAP typically needs more than one?
+4. In SOAP trigger integration, what decides the **request and response payload structure**?
+5. When you activate a SOAP service, where do you get the WSDL to share with the client?
+6. Can you unit-test SOAP services inside OIC the same way as REST? What do you use instead?
+7. If SoapUI returns **401 Unauthorized**, what’s your first place to check in OIC?
+8. What does “Username Password Token” mean in practical terms for the caller?
+9. In mapping, how did you generate the greeting output from firstName?
+10. Name the **three things** the trigger connection controls (as per trainer).
+
+Send your answers 1–10 (even quick bullets), and I’ll score them + give you a crisp “final answer” version you can use in interviews.
