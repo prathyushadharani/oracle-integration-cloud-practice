@@ -1,1 +1,134 @@
 
+Great idea — documenting the **exact SoapUI steps** will make your GitHub note much more useful. Here’s an improved **GitHub-ready Markdown draft** with the steps included.
+
+---
+
+# SOAP Service Testing in OIC — 401 Unauthorized (SoapUI)
+
+## Context
+
+I created and activated a **SOAP-triggered integration** in **Oracle Integration Cloud (OIC)** and attempted to test the service using **SoapUI (Open Source)**.
+
+The SOAP trigger connection in OIC was configured with the security policy:
+
+```
+Username Password Token
+```
+
+## Error Observed
+
+When invoking the SOAP service from SoapUI:
+
+**SoapUI Response**
+
+```
+HTTP/1.1 401 Unauthorized
+WWW-authenticate: Bearer realm=asm
+```
+
+**OIC Monitoring / Activity Stream**
+
+* The request reached the OIC instance.
+* But execution failed at the **trigger authentication stage** with an error similar to:
+
+```
+Error while processing authentication at trigger.
+Failed due to 401 Unauthorized.
+```
+
+---
+
+# Root Cause
+
+The integration expected **WS-Security UsernameToken authentication**, but I initially attempted to authenticate using **HTTP Basic Authentication**.
+
+Important difference:
+
+| Authentication Type     | Where Credentials Are Sent              |
+| ----------------------- | --------------------------------------- |
+| Basic Authentication    | HTTP Authorization header               |
+| Username Password Token | SOAP Header (WS-Security UsernameToken) |
+
+Because the credentials were not provided in the SOAP header, the request failed with **401 Unauthorized**.
+
+---
+
+# Solution
+
+Send credentials as a **WS-Security UsernameToken** inside the **SOAP Header**.
+
+Example SOAP Header:
+
+```xml
+<soapenv:Header>
+   <wsse:Security
+      xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+
+      <wsse:UsernameToken>
+         <wsse:Username>YOUR_OIC_USERNAME</wsse:Username>
+         <wsse:Password>YOUR_OIC_PASSWORD</wsse:Password>
+      </wsse:UsernameToken>
+
+   </wsse:Security>
+</soapenv:Header>
+```
+
+After adding this header, the SOAP service returned the expected response successfully.
+
+---
+
+# Steps Performed in SoapUI to Enable WS-Security (UsernameToken)
+
+1. Import the **WSDL URL** from OIC into SoapUI.
+2. SoapUI automatically generates the SOAP request structure.
+3. Right-click the **SoapUI Project** in the left panel.
+4. Open **WS-Security Configurations**.
+5. Under **Outgoing WS-Security Configurations**, click **Add New Configuration**.
+6. Provide a name (for example):
+
+```
+OICAuth
+```
+
+7. Inside this configuration:
+
+   * Click **Add**
+   * Select **Username Token**
+
+8. Enter the following details:
+
+```
+Username : <OIC Username>
+Password : <OIC Password>
+Password Type : PasswordText
+```
+
+9. Save the configuration.
+
+10. Attach this configuration to the SOAP request.
+
+In some SoapUI Open Source versions, the **WSS tab may not appear in the request editor**.
+In such cases, the **UsernameToken can be added manually in the SOAP Header** as shown above.
+
+---
+
+# Key Learnings
+
+1. Always verify **Trigger Connection → Security Policy** before testing an OIC integration.
+2. SOAP authentication often uses **WS-Security headers**, not HTTP headers.
+3. **SoapUI Open Source sometimes hides the WSS UI**, but authentication can still be implemented by manually adding the UsernameToken header.
+4. When encountering **401 Unauthorized**, check:
+
+   * Trigger security policy
+   * Authentication format used by the client
+   * Correct endpoint URL (SOAP endpoint vs WSDL URL)
+
+---
+
+If you want, I can also help you add a **small architecture diagram** showing:
+
+```
+SoapUI → SOAP Header (UsernameToken) → OIC Trigger → Integration Flow → Response
+```
+
+It will make your GitHub documentation look **much more professional**.
