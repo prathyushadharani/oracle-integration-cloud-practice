@@ -1,1 +1,437 @@
 
+Below is a **clean, structured study note** version you can directly store in **GitHub (README / Markdown notes)**. I organized it into clear sections so it becomes easy for **revision before interviews**.
+
+---
+
+# Oracle Integration Cloud (OIC) – Study Notes
+
+## Invoke Integration, JavaScript Libraries, and Trace Levels
+
+---
+
+# 1. Invoke Integration in OIC
+
+## Concept
+
+In **Oracle Integration Cloud**, **Invoke Integration** allows one integration to **call another integration**.
+
+Instead of implementing the same logic again, an existing integration can be reused.
+
+### Simple Flow
+
+```
+Integration A
+   ↓
+Invoke Integration B
+   ↓
+Receive Response
+   ↓
+Return Result
+```
+
+Integration A sends input to Integration B, receives the response, and continues processing.
+
+---
+
+# 2. When Do We Use Invoke Integration?
+
+When building an integration, we usually have **two choices**:
+
+### Option 1 — Implement logic again
+
+Write the logic directly inside the current integration.
+
+### Option 2 — Reuse an existing integration
+
+If another developer has already built an integration that performs the same function, it can be invoked instead of rewriting the logic.
+
+---
+
+# 3. Example Scenario
+
+Suppose an integration receives:
+
+```
+firstName = "John"
+```
+
+Expected response:
+
+```
+Hello John
+```
+
+Instead of implementing greeting logic again:
+
+1. Receive `firstName`
+2. Invoke an existing SOAP integration
+3. Pass `firstName`
+4. Receive response `"Hello John"`
+5. Send that response back
+
+The greeting logic is implemented in the **invoked integration**, not the main one.
+
+---
+
+# 4. Important Rule
+
+Integration **type or style does NOT matter**.
+
+You can invoke:
+
+| Calling Integration | Invoked Integration |
+| ------------------- | ------------------- |
+| REST/API            | SOAP                |
+| SOAP                | REST                |
+| App Driven          | Scheduled           |
+| Scheduled           | App Driven          |
+
+**Any integration can invoke another integration.**
+
+---
+
+# 5. Benefits of Invoke Integration
+
+## 1. Code Reusability
+
+Reusable integrations reduce duplication.
+
+Example:
+
+* Notification service
+* Logging service
+* Error handling service
+
+---
+
+## 2. Modular Design
+
+Large integrations can be broken into smaller modules.
+
+Example modules:
+
+```
+Customer Validation
+Inventory Check
+Payment Processing
+Notification Service
+```
+
+Each module can be invoked when needed.
+
+---
+
+## 3. Easier Maintenance
+
+If logic changes, update only the reusable integration.
+
+---
+
+## 4. Saves Development Time
+
+Example:
+
+Email configuration may take **20 minutes**.
+
+If 100 integrations require email:
+
+```
+20 min × 100 = 2000 minutes
+```
+
+Better approach:
+
+```
+Create one Notification Integration
+Invoke it from all other integrations
+```
+
+---
+
+# 6. Integration Style Change Scenario
+
+Sometimes integration requirements change.
+
+Example:
+
+Original requirement:
+
+```
+App Driven Integration
+```
+
+Later requirement:
+
+```
+Scheduled Integration
+```
+
+Integration type **cannot be changed after creation**.
+
+Solution:
+
+```
+Scheduled Integration
+      ↓
+Invoke
+      ↓
+Existing App Driven Integration
+```
+
+The scheduled integration triggers the existing one.
+
+---
+
+# 7. JavaScript Libraries in OIC
+
+OIC mapper already provides many built-in functions for transformations.
+
+Examples:
+
+* String functions
+* Date functions
+* Mathematical functions
+* Conditional functions
+
+These cover **about 99% of transformation scenarios**.
+
+---
+
+## When JavaScript is Needed
+
+JavaScript is used only in **rare cases**, such as:
+
+* Complex string formatting
+* Custom date formatting
+* Special calculations
+* Complex conditional logic
+
+---
+
+# 8. JavaScript Library Concept
+
+A **JavaScript library (.js file)** can contain multiple functions.
+
+Example:
+
+```
+function concatTwoStrings(a,b){
+   return a + b;
+}
+
+function concatThreeStrings(a,b,c){
+   return a + b + c;
+}
+```
+
+These functions can be registered in OIC and used inside integrations.
+
+---
+
+# 9. Ways to Call JavaScript in OIC
+
+## Method 1 — JavaScript Action Node
+
+Use a **JavaScript action** inside the integration flow.
+
+Example flow:
+
+```
+Trigger
+ ↓
+JavaScript Action
+ ↓
+Invoke Service
+ ↓
+Response
+```
+
+---
+
+## Method 2 — Use JavaScript in Mapper (Recommended)
+
+Registered JS functions appear under:
+
+```
+Mapper → Functions → User Defined
+```
+
+You can use them like built-in functions.
+
+Example mapping:
+
+```
+concat("Hello ", firstName)
+```
+
+---
+
+## Advantage of Mapper Approach
+
+Functions can be chained.
+
+Example:
+
+```
+Function1 output → Function2 input
+```
+
+This enables complex transformations inside the mapper.
+
+---
+
+# 10. Trace Levels in OIC
+
+When activating an integration, OIC asks you to select a **Trace Level**.
+
+Trace level controls:
+
+1. **How much execution information is logged**
+2. **How long the instance data is retained**
+
+---
+
+# 11. Trace Level Types
+
+## 1. Production
+
+### Retention
+
+```
+32 days
+```
+
+### Captured Information
+
+* Activity execution
+* Node names
+* Timestamps
+
+### Not Captured
+
+* Payloads
+
+### Usage
+
+Production environments.
+
+### Reason
+
+Best performance and safer from security risks.
+
+---
+
+## 2. Audit
+
+### Retention
+
+```
+8 days
+```
+
+### Captured Information
+
+Everything in Production plus:
+
+* Request payload
+* Response payload
+* Payloads during integration calls
+
+### Usage
+
+UAT / testing environments.
+
+---
+
+## 3. Debug
+
+### Retention
+
+```
+24 hours
+```
+
+### Captured Information
+
+* Payloads at **every node**
+* Detailed execution logs
+
+### Usage
+
+Development / SIT environments.
+
+---
+
+# 12. Why Debug Should Not Be Used in Production
+
+Two major reasons:
+
+## 1. Performance Impact
+
+Every node generates logs, which slows down the system.
+
+---
+
+## 2. Security Risk
+
+Sensitive data may be logged:
+
+* personal information
+* bank details
+* confidential payloads
+
+---
+
+# 13. Trace Level Comparison
+
+| Trace Level | Retention | Payload Logging           | Usage       |
+| ----------- | --------- | ------------------------- | ----------- |
+| Production  | 32 days   | No payloads               | Production  |
+| Audit       | 8 days    | Request/response payloads | UAT         |
+| Debug       | 24 hours  | Payload at every node     | Development |
+
+---
+
+# 14. Debugging Production Issues
+
+Production integrations usually run with:
+
+```
+Trace Level = Production
+```
+
+If an integration fails and the cause is unclear:
+
+1. Go to the failed instance
+2. Resubmit the instance
+3. Choose **Debug trace level**
+
+This captures detailed logs for **that specific run only**.
+
+---
+
+# 15. Best Practice Trace Level Usage
+
+| Environment | Trace Level |
+| ----------- | ----------- |
+| Development | Debug       |
+| SIT         | Debug       |
+| UAT         | Audit       |
+| Production  | Production  |
+
+---
+
+# Key Takeaways
+
+* Integrations in OIC can **invoke other integrations** regardless of type or style.
+* Invoke integration helps achieve **modular architecture and reusability**.
+* JavaScript libraries are used only in **rare cases for custom transformations**.
+* OIC provides three trace levels:
+
+  * **Production** → minimal logs
+  * **Audit** → moderate logs
+  * **Debug** → full logs for troubleshooting.
+
+---
+
+If you want, I can also convert this into a **very clean GitHub-ready Markdown file with diagrams and architecture visuals** (much easier to revise before interviews).
