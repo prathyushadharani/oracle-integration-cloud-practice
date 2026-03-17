@@ -1,1 +1,384 @@
+Here’s a clean summary of what was covered in today’s OIC class.
+
+## Topic covered
+
+**File Transfer Service using Oracle Integration Cloud (OIC)** with:
+
+* **Scheduled integration**
+* **Source SFTP** and **Target SFTP**
+* **PGP encryption**
+* **List / Read / Write / Move file operations**
+* **For-Each loop**
+* **Scheduled parameters**
+
+---
+
+## Main use case
+
+A source system like **WMS** drops files into a **source SFTP input folder** around **1:00 AM**.
+
+The OIC integration is scheduled to run at **1:30 AM** and should:
+
+1. Go to the source SFTP input folder
+2. List matching files
+3. Loop through each file
+4. Read each file
+5. Write it to target SFTP
+6. Encrypt it using **PGP**
+7. Move the source file to **archive**
+
+---
+
+## Connections required
+
+Two SFTP connections were created:
+
+* **Source SFTP connection**
+* **Target SFTP connection**
+
+For the **target connection**, the **public key** was uploaded so that files written there can be **PGP encrypted**.
+
+---
+
+## Why Scheduled Integration?
+
+Because the source system does **not explicitly trigger** OIC.
+
+So instead of an app-driven trigger, OIC uses a **schedule** to run automatically at a certain time.
+
+---
+
+## Integration design flow
+
+The integration being built is roughly:
+
+**Schedule → List Files → For Each File → Read File → Write File (encrypted) → Move File to Archive**
+
+---
+
+## Step 1: List Files from source SFTP
+
+The first action is **List Files** on the source SFTP.
+
+### Important inputs for List Files
+
+* **Directory Path**
+* **File Name Pattern**
+
+Example patterns discussed:
+
+* `*.txt` → all text files
+* `*.csv` → all CSV files
+* `items*.csv` → files starting with `items` and ending with `.csv`
+* `*.*` → all files
+* `*.*` with exclude pattern `*.zip` → all except zip files
+
+### Important note
+
+This search is **case sensitive**.
+
+* `items*.csv` is different from `Items*.csv`
+
+---
+
+## Minimum Age
+
+A very important concept discussed.
+
+Example:
+
+* Minimum age = **300 seconds** = **5 minutes**
+
+This means only files older than 5 minutes are picked.
+
+### Why is this useful?
+
+To avoid picking a file that the source system is **still writing**.
+
+Example:
+
+* WMS starts creating a file
+* OIC runs immediately
+* If OIC picks it too early, the file may be incomplete
+
+So minimum age protects against partial/incomplete file pickup.
+
+---
+
+## List Files Recursively
+
+If this checkbox is enabled, OIC will:
+
+* Search the main folder
+* Also search subfolders under it
+
+Example:
+
+* Input folder has 3 files
+* Subfolder has 1 file
+* With recursive option enabled, OIC can return all 4 files
+
+---
+
+## Problem with hardcoding paths and patterns
+
+The instructor pointed out that hardcoding values like:
+
+* directory path
+* file pattern
+
+is not ideal.
+
+Because if the folder path changes later, you must edit the integration again.
+
+### Better approach
+
+Use **Scheduled Parameters**.
+
+Examples created:
+
+* `inputDirectoryPath`
+* `fileNamePattern`
+* `archiveDirectoryPath`
+* `outputDirectoryPath`
+
+These are set on the schedule and then mapped into actions.
+
+This makes the integration more flexible.
+
+---
+
+## Dummy values in endpoints
+
+For actions like **List Files**, **Read File**, **Write File**, mandatory fields had to be filled during configuration.
+
+So dummy values like:
+
+* `A`
+* `B`
+
+were temporarily entered.
+
+Later, in the **mapper**, these dummy values are overridden with actual values from scheduled parameters or loop variables.
+
+This is a common OIC design pattern.
+
+---
+
+## Step 2: For-Each loop
+
+After List Files returns a **collection of files**, OIC needs to process each file one by one.
+
+So a **For-Each** loop is used.
+
+### Why For-Each?
+
+Because the number of files changes every day:
+
+* today: 3 files
+* tomorrow: 0 files
+* another day: 10 files
+
+The For-Each loops through the returned file collection.
+
+---
+
+## Current File / Current Element
+
+Inside the For-Each loop, a current element name was given, like:
+
+* `currentFile`
+
+This is important because during each iteration, OIC needs to know:
+
+* which file is currently being processed
+
+Example:
+
+* iteration 1 → `items1.csv`
+* iteration 2 → `items2.csv`
+* iteration 3 → `items3.csv`
+
+The `currentFile` variable gives access to the properties of that file during that iteration.
+
+---
+
+## Step 3: Read File
+
+Inside the loop, the source SFTP connection is used with **Read File**.
+
+Since the file name changes in each iteration, it should not be hardcoded.
+
+Instead, the file name comes from the **current file in the loop**.
+
+### Sample file upload
+
+The instructor chose **not** to upload a sample file.
+
+When no sample file is uploaded, OIC reads the file as a whole and returns a **file reference**.
+
+---
+
+## What is File Reference?
+
+This was asked in class.
+
+### Simple meaning
+
+**File Reference** is the variable that holds the file content returned by the Read File action.
+
+It is used to pass the file content to the Write File action.
+
+So the flow is:
+
+* Read file → get file reference
+* Write file → use that file reference as input
+
+That is the “handshake” between read and write.
+
+---
+
+## Step 4: Write File to target SFTP
+
+After reading the file, OIC writes it to the **target SFTP**.
+
+### Important mapping for Write File
+
+Need to map:
+
+* output directory path
+* output file name
+* file reference
+
+### Output file naming
+
+Because the file is being encrypted, the output file name should usually include:
+
+* `.pgp`
+
+Example:
+
+* source: `items1.csv`
+* target: `items1.csv.pgp`
+
+This makes it clear to the receiving system that the file is encrypted.
+
+---
+
+## PGP encryption
+
+PGP encryption is enabled in the **Write File** step.
+
+The public key had already been uploaded in the **target FTP connection**.
+
+So in the integration, OIC just needs the option:
+
+* **Perform PGP Encryption**
+
+Then OIC uses the uploaded public key automatically.
+
+---
+
+## Step 5: Move file to Archive
+
+After the file is successfully read and written, the source file should not remain in input.
+
+Otherwise it may be picked again in the next run.
+
+So the file is moved:
+
+* from **input**
+* to **archive**
+
+This is done using **Move File**.
+
+### Archive file name
+
+The same file name can be reused.
+
+Or optionally:
+
+* append date/time stamp
+
+to make archived files more traceable.
+
+---
+
+## Important logic point
+
+A student asked:
+“What if write fails? Will archive still happen?”
+
+Answer:
+No. The archive step happens **after** the earlier steps succeed.
+
+So if read/write fails, the flow does not continue to move the file.
+
+That means the file is not archived unless prior actions are successful.
+
+---
+
+## Questions discussed in class
+
+### 1. What is file reference?
+
+It is the content returned by Read File and passed into Write File.
+
+### 2. Why do we need current file variable in For-Each?
+
+Because inside each loop iteration, OIC must know which file is being processed.
+
+### 3. Is there validation before archiving?
+
+The move/archive step happens only if previous actions succeed.
+
+### 4. Different PGP keys for test and prod?
+
+Yes, this is handled through connection configuration and migration/deployment practices. That topic will be covered separately.
+
+### 5. Retry mechanism?
+
+Instructor said this will be discussed in the next session, along with deliberate error testing.
+
+---
+
+## What was planned for next class
+
+In the next session, they plan to:
+
+* activate the integration
+* test it
+* intentionally create errors
+* discuss retry/error handling
+
+---
+
+## Super short flow to remember
+
+You can remember the whole design like this:
+
+**Scheduled Integration**
+→ **List files from source SFTP**
+→ **For each file**
+→ **Read file**
+→ **Write encrypted file to target SFTP**
+→ **Move source file to archive**
+
+---
+
+## Key interview-style takeaways from this session
+
+These are the practical points worth remembering:
+
+* Use **Scheduled Integration** when source system does not trigger OIC
+* Use **List Files** to get file collection
+* Use **For-Each** to process dynamic number of files
+* Use **current file variable** inside loop
+* Use **Read File → File Reference → Write File**
+* Use **PGP encryption** on target write
+* Use **Move File** to archive processed source files
+* Use **minimum age** to avoid partial file pickup
+* Use **scheduled parameters** instead of hardcoding paths/patterns
+
+If you want, I can turn this into a **clean interview notes version** or a **step-by-step flowchart style explanation** for revision.
 
