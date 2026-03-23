@@ -59,5 +59,36 @@ Whenever you answer “WHY not direct access”, think:
 
 👉 Security + Control + Isolation
 
+---------------------------
+
+OIC is a trusted integration layer within the enterprise boundary, whereas third-party systems are external.
+
+Even though OIC has access to the source system, it is fully controlled, monitored, and configured by the organization. It only accesses required data.
+
+Providing direct access to third-party systems would expose the entire SFTP server and lead to security risks.
+
+So OIC acts as a secure mediator, ensuring controlled and selective data transfer.
+---------------------------------------------------------------------------------------------------------------------------
+🚀 Question 3
+
+👉 Why do we create two FTP connections in OIC? Can we use just one?
+
+Answer in 3–5 lines 👍
+
+In a file transfer use case, we create two FTP connections in OIC because one is used to connect to the source SFTP server to read files, and the other is used to connect to the target SFTP server to write files.
+
+These are typically different systems with different host details, credentials, and access permissions.
+
+We cannot use a single connection because each connection is tied to a specific endpoint configuration.
+
+So to handle read and write operations across two different servers, we need two separate FTP connections.
+
+🧠 Small Upgrade (to impress interviewer)
+
+If you add this line, it becomes 🔥:
+
+Each connection represents a different endpoint and encapsulates its own security, authentication, and configuration details.
+-----------------------------------------------------------------------------------------------------------------------------
+
 
 
