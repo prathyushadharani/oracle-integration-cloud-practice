@@ -1,0 +1,425 @@
+Great — here’s a **clean GitHub README-style version** (well-structured, polished, and easy to revisit before interviews 👇)
+
+---
+
+# 📘 OIC Training Notes – File Transfer Service & PGP Encryption
+
+## 📅 Session Summary
+
+This session covered:
+
+* OIC instance outage update
+* File Transfer Service use case
+* Source vs Target SFTP architecture
+* Oracle MFT vs OIC approach
+* FTP Adapter basics
+* SFTP connection setup
+* PGP encryption concept (very important 🔥)
+
+---
+
+# 🚨 1. OIC Instance Outage
+
+## Issue
+
+* OIC instance is currently **down due to Oracle Cloud issue**
+* Error seen:
+
+  * `Too many requests` after login
+
+## Key Points
+
+* Not a user issue
+* Issue is at **Oracle infrastructure level**
+* Expected resolution: **1–2 days**
+
+## Temporary Setup
+
+* Trainer using **temporary OIC instance (demo only)**
+* Not shared with students to avoid confusion
+
+✅ **Action for you**
+
+* Don’t troubleshoot unnecessarily
+* Continue learning concepts
+* Wait for official instance update
+
+---
+
+# 🏭 2. Real-Time Business Use Case
+
+## Scenario
+
+```
+Application A (WMS)
+        ↓
+   Source SFTP (On-Prem)
+        ↓
+        OIC
+        ↓
+   Target SFTP (3rd Party)
+        ↓
+Application B (Shipping System)
+```
+
+## Flow
+
+1. WMS generates **CSV files (item updates)**
+2. Files placed in **Source SFTP**
+3. OIC reads files
+4. OIC transfers files to **Target SFTP**
+5. Third-party system processes files
+
+---
+
+# ❌ Problem with Direct Access
+
+Why not give third party access to source SFTP?
+
+* Contains **sensitive internal files**
+* Security risk
+* Violates enterprise policies
+
+👉 So we introduce:
+➡️ **Target SFTP Server**
+
+---
+
+# 🔄 3. Why File Transfer Service is Needed
+
+## Problem
+
+* Source system writes files in one location
+* Target system expects files in another location
+
+## Solution
+
+Use OIC to:
+
+* Read from source
+* Write to target
+
+---
+
+# 📦 4. Oracle MFT vs OIC
+
+## What is MFT?
+
+* Managed File Transfer (Oracle product)
+* Used for file movement between systems
+
+## Why no new MFT licenses?
+
+👉 Because OIC can now handle the same use case
+
+## Replacement
+
+Instead of MFT:
+
+* Use **OIC Scheduled Integration**
+* Use **FTP Adapter**
+
+---
+
+# 🔌 5. OIC Solution Design
+
+## Steps
+
+1. Create **Source FTP Connection**
+2. Create **Target FTP Connection**
+3. Build **Scheduled Integration**
+4. Read file from source
+5. (Optional) Encrypt file
+6. Write file to target
+
+---
+
+# 🌐 6. FTP vs SFTP
+
+| Type | Full Form                     | Security      |
+| ---- | ----------------------------- | ------------- |
+| FTP  | File Transfer Protocol        | ❌ Less secure |
+| SFTP | Secure File Transfer Protocol | ✅ More secure |
+
+👉 In this use case: **SFTP is used**
+
+---
+
+# 💻 7. SFTP Access from Laptop
+
+## Tool Recommendation
+
+✅ Use: **FileZilla**
+❌ Avoid: **WinSCP** (may throw errors)
+
+---
+
+## ⚠️ Important Tip
+
+❌ Do NOT use **Quick Connect**
+👉 It fails if port ≠ 22
+
+## ✅ Correct Method
+
+* Open **Site Manager**
+* Select:
+
+  * Protocol → SFTP
+  * Enter host, port, username, password
+
+---
+
+# 📁 8. Folder Structure (Best Practice)
+
+Create your own folder:
+
+```
+yourname/
+   file-transfer-service/
+      input/
+      archive/
+      output/
+```
+
+## Purpose
+
+* `input` → source files
+* `archive` → processed files
+* `output` → final output
+
+⚠️ Never modify others’ folders
+
+---
+
+# 🔗 9. FTP Adapter in OIC
+
+## Key Point
+
+Same adapter supports:
+
+* FTP
+* SFTP
+
+---
+
+# 🔁 10. Two Connections Required
+
+## 1. Source Connection
+
+* Used to **read files**
+
+## 2. Target Connection
+
+* Used to **write files**
+
+👉 Usually:
+
+* Different hosts
+* Different credentials
+
+---
+
+# ⚠️ 11. Common Configuration Issue
+
+Even if optional field exists:
+
+👉 You MUST set:
+
+```
+SFTP Connection = Yes
+```
+
+Otherwise:
+❌ Connection fails
+
+---
+
+# 🔐 12. Why Encryption is Needed
+
+## Problem
+
+If we send plain CSV:
+
+```
+items.csv → readable by anyone
+```
+
+If server is hacked:
+
+* Data exposed instantly
+
+---
+
+# ✅ Solution: PGP Encryption
+
+Encrypt file before sending
+
+---
+
+# 🔑 13. PGP Basics (VERY IMPORTANT)
+
+## Full Form
+
+**PGP = Pretty Good Privacy**
+
+---
+
+## Key Concept
+
+| Key Type    | Purpose |
+| ----------- | ------- |
+| Public Key  | Encrypt |
+| Private Key | Decrypt |
+
+👉 Golden Rule:
+
+```
+Public → Encrypt
+Private → Decrypt
+```
+
+---
+
+# 🔄 14. Outbound Flow (This Use Case)
+
+## Steps
+
+1. OIC reads CSV
+2. OIC encrypts using **Public Key**
+3. File sent to Target SFTP
+4. Third party uses **Private Key** to decrypt
+
+---
+
+# 🔁 15. Inbound vs Outbound
+
+## Outbound (Today’s case)
+
+* We send file
+* Use **Public Key**
+
+## Inbound
+
+* Third party sends encrypted file
+* We use **Private Key** to decrypt
+
+---
+
+# 🔐 16. Where Keys Are Used in OIC
+
+## Source Connection
+
+* No encryption needed
+* No key required
+
+## Target Connection
+
+* Encryption required
+* Upload:
+
+  * **Public Key**
+
+---
+
+# 🧠 17. Why This is Secure
+
+Even if:
+
+* Password is hacked
+* Unauthorized access happens
+
+👉 Data remains unreadable
+
+---
+
+# 🧪 18. File Comparison
+
+## Normal File
+
+```
+items.csv → readable
+```
+
+## Encrypted File
+
+```
+items.csv.pgp → unreadable
+```
+
+---
+
+# 🔍 19. Key Generation
+
+## Can be done using:
+
+* Fusion Cloud → Security Console
+* External tools
+
+## Typical Settings
+
+* RSA
+* 2048 bit
+* AES 256
+
+---
+
+# 📌 20. Key Takeaways
+
+✔ OIC instance issue is temporary
+✔ File transfer is a **common real-time use case**
+✔ OIC can replace MFT
+✔ Always use **two FTP connections**
+✔ Use **FileZilla (not WinSCP)**
+✔ Encryption is critical for sensitive data
+✔ Remember:
+
+```
+Public → Encrypt
+Private → Decrypt
+```
+
+---
+
+# 🎯 21. Likely Interview Questions
+
+### Q1: Why not expose source SFTP to third party?
+
+👉 Security risk (contains sensitive internal data)
+
+### Q2: Why target SFTP?
+
+👉 Controlled access for third party
+
+### Q3: Why Oracle stopped MFT licenses?
+
+👉 OIC can handle same functionality
+
+### Q4: Why encrypt files?
+
+👉 Protect sensitive data from unauthorized access
+
+### Q5: Which key is used for encryption?
+
+👉 Public key
+
+### Q6: Which key is used for decryption?
+
+👉 Private key
+
+---
+
+# 🚀 22. What’s Coming Next
+
+Next session will cover:
+
+* Building actual integration
+* File read/write operations
+* Encryption configuration
+* File size limits
+* Advanced file handling
+
+---
+
+If you want next, I can also give you:
+👉 **Step-by-step integration build notes (with exact clicks)**
+👉 OR **Interview Q&A based on this session (very powerful for your prep)**
