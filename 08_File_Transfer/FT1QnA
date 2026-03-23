@@ -38,4 +38,26 @@ Going back and forth
 Over-explaining
 
 ------------------------------------------------------------------------------------------------------------------------
+Question 2 (Core understanding)
+
+👉 Why can’t we give third-party systems direct access to the source SFTP server? What problem are we solving using OIC?
+
+Answer:
+We cannot give third-party systems direct access to the source SFTP server mainly due to security and access control concerns.
+
+The source SFTP server may contain multiple files, including sensitive internal data that should not be exposed to external systems.
+
+Providing direct access would mean the third party could potentially view or access unintended data, which violates security and governance policies.
+
+To solve this, we use OIC as a controlled integration layer. OIC connects to the source SFTP server, picks only the required files, and transfers them to a target SFTP server that is accessible to the third party.
+
+This ensures secure, controlled, and selective data sharing.
+
+🧠 Upgrade Your Thinking (Important)
+
+Whenever you answer “WHY not direct access”, think:
+
+👉 Security + Control + Isolation
+
+
 
