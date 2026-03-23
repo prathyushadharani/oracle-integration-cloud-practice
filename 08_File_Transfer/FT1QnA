@@ -1,0 +1,35 @@
+Question 1 (Warm-up but important)
+
+👉 Can you explain a real-time use case where you used FTP adapter in OIC?
+
+(Don’t define FTP. Tell a scenario like your tutor explained.)
+
+Answer:
+
+Yes, I worked on a file transfer use case using FTP adapter in OIC.
+
+In our scenario, a WMS system was generating item-related CSV files and placing them on an on-premise SFTP server.
+
+A third-party system needed these files, but for security reasons, we could not give them direct access to the source SFTP server.
+
+So we built a scheduled integration in OIC. Using FTP adapter, we created two connections — one for the source SFTP and one for the target SFTP.
+
+The integration picks up files from the source server and transfers them to the third-party SFTP server.
+
+Since the files contained sensitive data, we implemented PGP encryption. OIC encrypts the file using the public key before placing it on the target server, and the third party decrypts it using their private key.
+
+This way, we ensured secure and controlled file transfer between systems.
+
+🧠 Key Improvements You Should Learn
+✅ Structure
+
+Always speak in this order:
+
+Scenario
+Problem
+Solution (OIC role)
+Security (optional but powerful)
+✅ Avoid:
+Repetition
+Going back and forth
+Over-explaining
