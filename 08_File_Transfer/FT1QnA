@@ -97,6 +97,45 @@ What is the difference between FTP and SFTP? Which one do you prefer and why?
 
 Answer in 3–5 lines 👍
 
+FTP stands for File Transfer Protocol and is used to transfer files between systems, but it transmits data in plain text, which makes it less secure.
+
+SFTP stands for Secure File Transfer Protocol and works over SSH, providing encryption for both data and credentials during transmission.
+
+Typically, FTP uses port 21, whereas SFTP uses port 22.
+
+In real-time scenarios, we prefer SFTP because it ensures secure data transfer, especially when handling sensitive or confidential information.
+
+🧠 Simple Memory Trick
+
+👉 FTP = Fast but insecure
+👉 SFTP = Secure + encrypted
+--------------------------------------------------------------------------------------------------------------------------
+🚀 Next Question (Important)
+
+👉 Question 5:
+
+If you are transferring sensitive files to a third-party SFTP server, how do you secure the data?
+
+When transferring sensitive files to a third-party SFTP server, we secure the data using PGP encryption.
+
+In this approach, OIC encrypts the file using a public key before placing it on the target server.
+
+Even if someone gains access to the file, they cannot read the content because it is encrypted.
+
+The third-party system uses the corresponding private key to decrypt the file and process it.
+
+In OIC, we configure this by uploading the public key in the target FTP connection and enabling encryption during the file write operation.
+
+🧠 Key Points to Always Include
+
+👉 In answers like this, always mention:
+
+PGP encryption
+Public key → encrypt
+Private key → decrypt
+Configured in FTP connection
+
+----------------------------------------------------------------------------------------------------------------------------
 
 
 
