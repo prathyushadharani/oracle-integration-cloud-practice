@@ -1,1 +1,297 @@
+Absolutely — this is a **great habit** 👍 (GitHub notes = interview gold later)
+
+Here are your **clean, structured, GitHub-ready notes** based on today’s session:
+
+---
+
+# 📘 OIC – Inbound Integrations & ERP Basics (Session Notes)
+
+## 🔹 1. What is happening in this context?
+
+When a client **moves to Fusion Cloud ERP**, they:
+
+* Replace their **old ERP system (e.g., EBS R12)**
+* BUT still continue using other systems like:
+
+  * Core Banking System
+  * Billing System
+  * External Vendors (e.g., Bloomberg)
+
+👉 These systems still generate data
+👉 That data must now go into **Fusion Cloud**
+
+➡️ This is handled using **OIC (Oracle Integration Cloud)**
+
+---
+
+## 🔹 2. Role of OIC
+
+OIC acts as a **bridge between systems**
+
+### OIC Responsibilities:
+
+* Receive data from source systems
+* Transform data (if needed)
+* Enrich data (add missing info)
+* Load data into Fusion Cloud
+* Schedule or trigger integrations
+
+👉 In short:
+**OIC = Move + Transform + Automate data between systems**
+
+---
+
+## 🔹 3. Types of Integrations
+
+### ✅ Inbound Integration
+
+Data flows **into Fusion Cloud**
+
+Examples:
+
+* Journals → GL
+* Invoices → ERP
+* Exchange rates → ERP
+
+---
+
+### ✅ Outbound Integration
+
+Data flows **out of Fusion Cloud**
+
+Examples:
+
+* Reports to external systems
+* Data to downstream apps
+
+---
+
+## 🔹 4. Two Approaches for Inbound Integrations
+
+### 🟢 1. File-Based Approach
+
+Use when:
+
+* Large volume (bulk data)
+* Data available as files (CSV, etc.)
+* Source **cannot call APIs**
+* Processing is **scheduled**
+* Real-time not required
+
+#### Example:
+
+* 50,000 journal lines generated daily
+* File placed on FTP
+* OIC picks and loads into Fusion
+
+---
+
+### 🔵 2. Web Service-Based Approach
+
+Use when:
+
+* Source can call APIs
+* Data is in XML/JSON
+* Low/medium volume
+* Near real-time or real-time required
+
+#### Example:
+
+* Banking system sends journals every 10 mins
+* OIC receives and loads immediately
+
+---
+
+## 🔹 5. How to Decide the Approach
+
+You must ask:
+
+* What is the **data volume**?
+* Can source system call **web service**?
+* What **format** is data in?
+* What is the **frequency**?
+* How fast should data reflect in target?
+
+👉 Based on answers → choose File vs Web Service
+
+---
+
+## 🔹 6. Go-Live Understanding (Very Important)
+
+### ❌ Myth:
+
+After go-live → only Fusion Cloud is used
+
+### ✅ Reality:
+
+Even after go-live:
+
+* Other systems still exist
+* They continue generating data
+
+👉 That data must now go into Fusion instead of old ERP
+
+---
+
+## 🔹 7. Initial Migration vs Ongoing Integrations
+
+### 🟡 Initial Data Migration
+
+* One-time (or phase-based)
+* Done during implementation
+* Handled by:
+
+  * Fusion consultants
+  * Data migration teams
+* Often manual/semi-automated
+
+---
+
+### 🟢 Ongoing Integrations (Post Go-Live)
+
+* Continuous process
+* Automated via OIC
+* Runs:
+
+  * Daily
+  * Hourly
+  * Real-time
+
+👉 This is where OIC is heavily used
+
+---
+
+## 🔹 8. FBDI & HDL
+
+### 📦 FBDI (File-Based Data Import)
+
+* Used for **ERP modules**
+
+  * Finance
+  * SCM
+* Bulk data upload via files
+
+---
+
+### 👥 HDL (HCM Data Loader)
+
+* Used for **HCM modules**
+* Bulk employee data loading
+
+---
+
+## 🔹 9. What is a Journal?
+
+A **Journal** is an accounting record in **General Ledger (GL)**
+
+👉 Represents financial transactions
+
+Example:
+
+* Buying goods → expense recorded
+* Selling goods → revenue recorded
+
+---
+
+## 🔹 10. Journal Structure
+
+There are 3 levels:
+
+1. **Batch**
+2. **Journal**
+3. **Lines**
+
+### Journal Lines:
+
+* Debit line
+* Credit line
+
+👉 Rule:
+**Total Debit = Total Credit**
+
+---
+
+## 🔹 11. Subledger vs Ledger
+
+### 🔹 Subledger
+
+Where transactions happen:
+
+* Accounts Payable (AP)
+* Accounts Receivable (AR)
+* Procurement
+
+---
+
+### 🔹 General Ledger (GL)
+
+* Final accounting system
+* All transactions summarized here as **journals**
+* Used for reporting
+
+---
+
+## 🔹 12. Why SOAP for Journal Integration?
+
+* REST API did NOT support journal creation
+* So Oracle SOAP service is used:
+  👉 **Journal Import Service**
+
+### Flow:
+
+1. Send journal lines
+2. Insert into interface table
+3. Run import job
+4. Journal created in GL
+
+---
+
+## 🔹 13. Key Concept (Interview Ready)
+
+👉 OIC does NOT replace ERP
+👉 OIC connects systems TO ERP
+
+👉 Initial migration ≠ OIC responsibility
+👉 OIC = Post go-live automation
+
+---
+
+## 🔹 14. Your Simple Explanation (Keep this!)
+
+> "OIC is used to integrate external systems with Fusion Cloud.
+> Depending on volume, real-time need, and system capability, we use either file-based or web service-based integrations.
+> File-based is for bulk and scheduled processing, while web service-based is for near real-time integrations."
+
+---
+
+## 🔹 15. What NOT to worry now
+
+You **do NOT need to master now**:
+
+* XML reference fields
+* SOAP payload structure
+* Journal detailed fields
+
+👉 These will come during hands-on
+
+---
+
+## ⭐ Final Note
+
+You are already:
+
+* Understanding concepts ✔️
+* Explaining in your own words ✔️
+* Connecting old SOA knowledge ✔️
+
+👉 This is EXACTLY how real learning happens.
+
+---
+
+If you want next:
+👉 I can create **"Interview answers version"** of this
+👉 Or **flashcards for quick revision**
+👉 Or **2-minute speaking practice scripts**
+
+Just tell me 👍
 
